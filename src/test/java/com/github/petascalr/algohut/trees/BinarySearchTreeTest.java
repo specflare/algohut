@@ -10,7 +10,7 @@ public class BinarySearchTreeTest {
     Random rand = new Random();
 
     @Test
-    public void BasicTest() {
+    public void basicTest() {
         BinarySearchTree<Integer> bt = new BinarySearchTree<>();
         ArrayList<Integer> list = new ArrayList<>();
 

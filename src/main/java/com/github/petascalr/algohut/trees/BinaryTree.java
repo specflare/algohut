@@ -14,7 +14,7 @@ public abstract class BinaryTree<T extends Comparable<T> > {
      */
     @AllArgsConstructor
     @NoArgsConstructor
-    class Node {
+    public class Node {
 
         @Getter @Setter
         private T data;
@@ -41,6 +41,7 @@ public abstract class BinaryTree<T extends Comparable<T> > {
         POSTORDER
     }
 
+    @Getter
     Node root;
 
     /**
@@ -144,5 +145,23 @@ public abstract class BinaryTree<T extends Comparable<T> > {
             visitPostOrder(localRoot.right, consume);
             consume.accept(localRoot.getData());
         }
+    }
+
+    @Override
+    public boolean equals(Object rhs) {
+        if (!(rhs instanceof BinaryTree)) {
+            return false;
+        }
+
+        BinaryTree bt = (BinaryTree) rhs;
+        return equalsImpl(root, bt.getRoot());
+    }
+
+    private boolean equalsImpl(Node lhs, Node rhs) {
+        if (null == lhs && null == rhs) {
+            return true;
+        }
+
+        return false;
     }
 }
