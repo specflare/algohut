@@ -7,11 +7,6 @@ import lombok.Setter;
 
 import java.util.function.Consumer;
 
-/**
- * Implements a generic binary search tree.
- * For reference: https://en.wikipedia.org/wiki/Binary_search_tree
- * @param <T> Generic data type
- */
 @NoArgsConstructor
 public abstract class BinaryTree<T extends Comparable<T> > {
     /**
@@ -35,7 +30,7 @@ public abstract class BinaryTree<T extends Comparable<T> > {
             left = right = null;
         }
 
-        public boolean isLeaf() {
+        boolean isLeaf() {
             return ((left == null) && (right == null));
         }
     }
@@ -91,7 +86,27 @@ public abstract class BinaryTree<T extends Comparable<T> > {
         return true;
     }
 
-    public void visit(Consumer<T> consume, VisitOrder order) {
+    public boolean contains(T key) {
+        return containsImpl(root, key);
+    }
+
+    private boolean containsImpl(Node localRoot, T key) {
+        if (null == localRoot) {
+            return false;
+        }
+
+        if (key.compareTo(localRoot.getData()) < 0) {
+            return containsImpl(localRoot.getLeft(), key);
+        }
+
+        if (key.compareTo(localRoot.getData()) > 0) {
+            return containsImpl(localRoot.getRight(), key);
+        }
+
+        return true;
+    }
+
+    public void visit(VisitOrder order, Consumer<T> consume) {
         switch (order) {
             case PREORDER:
                 visitPreOrder(root, consume);
@@ -117,16 +132,16 @@ public abstract class BinaryTree<T extends Comparable<T> > {
 
     private void visitInOrder(Node localRoot, Consumer<T> consume) {
         if (null != localRoot) {
-            visitPreOrder(localRoot.left, consume);
+            visitInOrder(localRoot.left, consume);
             consume.accept(localRoot.getData());
-            visitPreOrder(localRoot.right, consume);
+            visitInOrder(localRoot.right, consume);
         }
     }
 
     private void visitPostOrder(Node localRoot, Consumer<T> consume) {
         if (null != localRoot) {
-            visitPreOrder(localRoot.left, consume);
-            visitPreOrder(localRoot.right, consume);
+            visitPostOrder(localRoot.left, consume);
+            visitPostOrder(localRoot.right, consume);
             consume.accept(localRoot.getData());
         }
     }

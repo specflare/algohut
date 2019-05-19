@@ -1,5 +1,10 @@
 package com.github.petascalr.algohut.trees;
 
+/**
+ * Implements a generic binary search tree.
+ * For reference: https://en.wikipedia.org/wiki/Binary_search_tree
+ * @param <T> Generic data type
+ */
 public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
     /**
      * Inserts a new key in the BST.
