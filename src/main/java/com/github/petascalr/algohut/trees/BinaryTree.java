@@ -34,6 +34,10 @@ public abstract class BinaryTree<T extends Comparable<T> > {
             this.data = what;
             left = right = null;
         }
+
+        public boolean isLeaf() {
+            return ((left == null) && (right == null));
+        }
     }
 
     public enum VisitOrder {
@@ -46,16 +50,22 @@ public abstract class BinaryTree<T extends Comparable<T> > {
 
     /**
      * Deletes a leaf node from the BST.
-     * If key is not found in the tree, nothing happens.
-     * @param key Key to be deleted
+     * If the key is found, but it is not a leaf, it is NOT deleted.
+     * @param key Key to be deleted.
+     * @return true if key is found (and it is a leaf), false otherwise.
      */
-    public void deleteLeaf(T key) {
+    public boolean deleteLeaf(T key) {
         Node current = root;
-        Node parent = root;
-        boolean isLeftChild;
+        Node parent = current;
+        boolean isLeftChild = true;
+
+        if (null == root) {
+            return false;
+        }
+
         while (null != current) {
             parent = current;
-            isLeftChild = true;
+
             if (key.compareTo(current.getData()) < 0) {
                 current = current.getLeft();
                 isLeftChild = true;
@@ -63,14 +73,22 @@ public abstract class BinaryTree<T extends Comparable<T> > {
                 current = current.getRight();
                 isLeftChild = false;
             } else {
-                // we found the node, we just delete the parent's corresponding child.
-                if (isLeftChild) {
-                    parent.setLeft(null);
+                // we found the node, we need to check if it's a leaf.
+                if (current.isLeaf()) {
+                    break;
                 } else {
-                    parent.setRight(null);
+                    return false;
                 }
             }
         }
+
+        if (isLeftChild) {
+            parent.setLeft(null);
+        } else {
+            parent.setRight(null);
+        }
+
+        return true;
     }
 
     public void visit(Consumer<T> consume, VisitOrder order) {
