@@ -33,6 +33,22 @@ public abstract class BinaryTree<T extends Comparable<T> > {
         boolean isLeaf() {
             return ((left == null) && (right == null));
         }
+
+        public boolean contains(T key) {
+            if (key.equals(data)) {
+                return true;
+            }
+
+            if (key.compareTo(data) < 0) {
+                return left.contains(key);
+            }
+
+            if (key.compareTo(data) > 0) {
+                return right.contains(key);
+            }
+
+            return false;
+        }
     }
 
     public enum VisitOrder {
@@ -88,24 +104,24 @@ public abstract class BinaryTree<T extends Comparable<T> > {
     }
 
     public boolean contains(T key) {
-        return containsImpl(root, key);
+        return root.contains(key);
     }
 
-    private boolean containsImpl(Node localRoot, T key) {
-        if (null == localRoot) {
-            return false;
-        }
-
-        if (key.compareTo(localRoot.getData()) < 0) {
-            return containsImpl(localRoot.getLeft(), key);
-        }
-
-        if (key.compareTo(localRoot.getData()) > 0) {
-            return containsImpl(localRoot.getRight(), key);
-        }
-
-        return true;
-    }
+//    private boolean containsImpl(Node localRoot, T key) {
+//        if (null == localRoot) {
+//            return false;
+//        }
+//
+//        if (key.compareTo(localRoot.getData()) < 0) {
+//            return containsImpl(localRoot.getLeft(), key);
+//        }
+//
+//        if (key.compareTo(localRoot.getData()) > 0) {
+//            return containsImpl(localRoot.getRight(), key);
+//        }
+//
+//        return true;
+//    }
 
     public void visit(VisitOrder order, Consumer<T> consume) {
         switch (order) {
