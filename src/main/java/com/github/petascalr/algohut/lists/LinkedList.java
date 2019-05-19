@@ -12,7 +12,7 @@ public class LinkedList<T> {
 
     @NoArgsConstructor
     @AllArgsConstructor
-    class Node {
+    public class Node {
 
         @Getter @Setter
         Node next;
@@ -58,6 +58,26 @@ public class LinkedList<T> {
             last.setNext(newNode);
             last = newNode;
         }
+    }
+
+    public boolean insertAfter(T what, T after) {
+        Node afterNode = find(after);
+
+        if (null == afterNode) {
+            return false;
+        }
+
+        Node newNode = new Node(what);
+        newNode.setPrev(afterNode);
+        newNode.setNext(afterNode.getNext());
+
+        afterNode.setNext(newNode);
+
+        if (null != newNode.getNext()) {
+            newNode.getNext().setPrev(newNode);
+        }
+
+        return true;
     }
 
     public boolean isEmpty() {
@@ -124,7 +144,7 @@ public class LinkedList<T> {
 
     public Node find(T what) {
         for (Node curr = first; curr != null; curr = curr.getNext()) {
-            if (curr.equals(what)) {
+            if (curr.getData().equals(what)) {
                 return curr;
             }
         }
@@ -142,5 +162,19 @@ public class LinkedList<T> {
         int count = 0;
         for (Node curr = first; curr != null; curr = curr.getNext(), count++);
         return count;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[ ");
+        foreach(elem -> {
+            sb.append(elem);
+            sb.append(", ");
+        });
+
+        sb.append("]");
+
+        return sb.toString();
     }
 }
