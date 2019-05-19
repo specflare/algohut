@@ -1,0 +1,4 @@
+
+Esquid:S1481"'Remove this unused "bt" local variable.(éö–ß8Ô‹ú¬-
+rsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûÎÒ•ûÿÿÿÿ8Ô‹ú¬-
+Tsquid:S1854"6Remove this useless assignment to local variable "bt".(éö–ß8Ô‹ú¬-
