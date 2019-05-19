@@ -12,7 +12,7 @@ A collection of data structures and algorithms implemented in Java/Scala. The pu
 
 ## Algorithms
 * Binary Trees
-    * Common Ancestor of 2 nodes
+    * Lowest Common Ancestor (LCA) of 2 nodes
 
 * Linked Lists
     * compute merge point (intersection) of 2 singly linked lists.
