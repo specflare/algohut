@@ -3,6 +3,9 @@ package com.github.petascalr.algohut.algos;
 import com.github.petascalr.algohut.lists.*;
 
 public class LinkedListAlgos {
+
+    private LinkedListAlgos(){}
+
     /**
      * Computes the merge point between 2 lists.
      * Conditions:
@@ -57,5 +60,56 @@ public class LinkedListAlgos {
         }
 
         return null;
+    }
+
+    /**
+     * Merges the 2 lists into a sorted list.
+     * This is an IN PLACE implementation, in O(n) time, and O(1) space.
+     * This implementation destroys the input lists.
+     * @param list1 sorted list1
+     * @param list2 sorted list2
+     * @return
+     */
+    public static <T extends Comparable<T>> LinkedList<T>.Node sortedMerge(LinkedList<T> list1, LinkedList<T> list2) {
+        LinkedList<T>.Node curr1 = list1.getFirst();
+        LinkedList<T>.Node curr2 = list2.getFirst();
+        LinkedList<T>.Node curr = null;
+        LinkedList<T>.Node newFirst = null;
+
+        while (null != curr1 && null != curr2) {
+            LinkedList<T>.Node next;
+
+            if (curr1.getData().compareTo(curr2.getData()) < 0) {
+                next = curr1;
+                curr1 = curr1.getNext();
+            } else if (curr1.getData().compareTo(curr2.getData()) > 0) {
+                next = curr2;
+                curr2 = curr2.getNext();
+            } else {
+                next = curr1;
+                curr1 = curr1.getNext();
+                curr2 = curr2.getNext();
+            }
+
+            // this only happens at first iteration
+            if (null == newFirst) {
+                newFirst = next;
+                curr = next;
+            } else {
+                // from 2nd iteration onwards
+                curr.setNext(next);
+                curr = next;
+            }
+        }
+
+        if (null != curr) {
+            if (null == curr1) {
+                curr.setNext(curr2);
+            } else {
+                curr.setNext(curr1);
+            }
+        }
+
+        return newFirst;
     }
 }

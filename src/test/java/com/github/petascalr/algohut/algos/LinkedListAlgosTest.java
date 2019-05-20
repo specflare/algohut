@@ -44,4 +44,18 @@ public class LinkedListAlgosTest {
 
         Assert.assertNull(LinkedListAlgos.computeMergePoint(list1, list2));
     }
+
+    @Test
+    public void sortedMergeSuccessTest() {
+        LinkedList<Integer> list1 = new LinkedList<>();
+        LinkedList<Integer> list2 = new LinkedList<>();
+
+        list1.fromArray(new Integer[] {1, 3, 5, 7});
+        list2.fromArray(new Integer[] {2, 4, 6, 7, 8, 10});
+
+        // please note that this implementation destroys the original lists, because it does the computations in place: O(n) time, O(1) space.
+        LinkedList<Integer>.Node first = LinkedListAlgos.sortedMerge(list1, list2);
+        LinkedList<Integer> listResult = new LinkedList<>(first);
+        Assert.assertEquals(9, listResult.countNodes());
+    }
 }

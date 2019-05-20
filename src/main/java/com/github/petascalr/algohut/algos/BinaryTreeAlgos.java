@@ -4,6 +4,7 @@ import com.github.petascalr.algohut.trees.*;
 
 public class BinaryTreeAlgos {
 
+    private BinaryTreeAlgos(){}
     /**
      * A node X is the common ancestor if key1 is contained inside the left subtree of X, and key2 is contained inside the right subtree of X, assuming key1 < key2
      * This implementation variant assumes that both keys are present in the tree.

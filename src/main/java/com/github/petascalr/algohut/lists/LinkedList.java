@@ -36,6 +36,17 @@ public class LinkedList<T> {
     @Getter
     private Node last;
 
+    public LinkedList(Node first) {
+        this.first = first;
+        this.last = null;
+    }
+
+    public void fromArray(T[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            addLast(arr[i]);
+        }
+    }
+
     public void addFirst(T what) {
         Node newNode = new Node(what);
         if (null == first) {
