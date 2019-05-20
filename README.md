@@ -16,3 +16,4 @@ A collection of data structures and algorithms implemented in Java/Scala. The pu
 
 * Linked Lists
     * compute merge point (intersection) of 2 singly linked lists.
+    * merge two sorted lists in place. (O(n) time, O(1) space).
