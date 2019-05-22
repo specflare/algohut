@@ -1,14 +1,14 @@
 package com.github.petascalr.algohut.algos;
 
-import com.github.petascalr.algohut.lists.LinkedList;
+import com.github.petascalr.algohut.lists.DoublyLinkedList;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class LinkedListAlgosTest {
+public class DoublyLinkedListAlgosTest {
     @Test
     public void mergePointSuccessTest() {
-        LinkedList<Integer> list1 = new LinkedList<>();
-        LinkedList<Integer> list2 = new LinkedList<>();
+        DoublyLinkedList<Integer> list1 = new DoublyLinkedList<>();
+        DoublyLinkedList<Integer> list2 = new DoublyLinkedList<>();
 
         list1.addLast(4);
         list1.addLast(6);
@@ -26,8 +26,8 @@ public class LinkedListAlgosTest {
 
     @Test
     public void mergePointFailTest() {
-        LinkedList<Integer> list1 = new LinkedList<>();
-        LinkedList<Integer> list2 = new LinkedList<>();
+        DoublyLinkedList<Integer> list1 = new DoublyLinkedList<>();
+        DoublyLinkedList<Integer> list2 = new DoublyLinkedList<>();
 
         list1.addLast(4);
         list1.addLast(6);
@@ -47,15 +47,15 @@ public class LinkedListAlgosTest {
 
     @Test
     public void sortedMergeSuccessTest() {
-        LinkedList<Integer> list1 = new LinkedList<>();
-        LinkedList<Integer> list2 = new LinkedList<>();
+        DoublyLinkedList<Integer> list1 = new DoublyLinkedList<>();
+        DoublyLinkedList<Integer> list2 = new DoublyLinkedList<>();
 
         list1.fromArray(new Integer[] {1, 3, 5, 7});
         list2.fromArray(new Integer[] {2, 4, 6, 7, 8, 10});
 
         // please note that this implementation destroys the original lists, because it does the computations in place: O(n) time, O(1) space.
-        LinkedList<Integer>.Node first = LinkedListAlgos.sortedMerge(list1, list2);
-        LinkedList<Integer> listResult = new LinkedList<>(first);
+        DoublyLinkedList<Integer>.Node first = LinkedListAlgos.sortedMerge(list1, list2);
+        DoublyLinkedList<Integer> listResult = new DoublyLinkedList<>(first);
         Assert.assertEquals(9, listResult.countNodes());
     }
 }

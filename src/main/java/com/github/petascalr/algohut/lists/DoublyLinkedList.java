@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.util.function.Consumer;
 
 @NoArgsConstructor
-public class LinkedList<T> {
+public class DoublyLinkedList<T> {
 
     @NoArgsConstructor
     @AllArgsConstructor
@@ -36,7 +36,7 @@ public class LinkedList<T> {
     @Getter
     private Node last;
 
-    public LinkedList(Node first) {
+    public DoublyLinkedList(Node first) {
         this.first = first;
         this.last = null;
     }

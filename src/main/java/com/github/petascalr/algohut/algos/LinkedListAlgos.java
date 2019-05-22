@@ -27,14 +27,14 @@ public class LinkedListAlgos {
      * @param list2
      * @return The merge node if exists, null otherwise
      */
-    public static LinkedList.Node computeMergePoint(LinkedList list1, LinkedList list2) {
+    public static DoublyLinkedList.Node computeMergePoint(DoublyLinkedList list1, DoublyLinkedList list2) {
 
         int count1 = list1.countNodes();
         int count2 = list2.countNodes();
         int numCommonNodes = Math.abs(count1 - count2);
 
-        LinkedList.Node currLonger;
-        LinkedList.Node currShorter;
+        DoublyLinkedList.Node currLonger;
+        DoublyLinkedList.Node currShorter;
 
         if (count1 > count2) {
             currLonger = list1.getFirst();
@@ -70,14 +70,14 @@ public class LinkedListAlgos {
      * @param list2 sorted list2
      * @return
      */
-    public static <T extends Comparable<T>> LinkedList<T>.Node sortedMerge(LinkedList<T> list1, LinkedList<T> list2) {
-        LinkedList<T>.Node curr1 = list1.getFirst();
-        LinkedList<T>.Node curr2 = list2.getFirst();
-        LinkedList<T>.Node curr = null;
-        LinkedList<T>.Node newFirst = null;
+    public static <T extends Comparable<T>> DoublyLinkedList<T>.Node sortedMerge(DoublyLinkedList<T> list1, DoublyLinkedList<T> list2) {
+        DoublyLinkedList<T>.Node curr1 = list1.getFirst();
+        DoublyLinkedList<T>.Node curr2 = list2.getFirst();
+        DoublyLinkedList<T>.Node curr = null;
+        DoublyLinkedList<T>.Node newFirst = null;
 
         while (null != curr1 && null != curr2) {
-            LinkedList<T>.Node next;
+            DoublyLinkedList<T>.Node next;
 
             if (curr1.getData().compareTo(curr2.getData()) < 0) {
                 next = curr1;
