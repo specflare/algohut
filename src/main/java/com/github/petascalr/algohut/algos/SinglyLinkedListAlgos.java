@@ -2,14 +2,13 @@ package com.github.petascalr.algohut.algos;
 
 import com.github.petascalr.algohut.lists.*;
 
-public class LinkedListAlgos {
+public class SinglyLinkedListAlgos {
 
-    private LinkedListAlgos(){}
+    private SinglyLinkedListAlgos(){}
 
     /**
      * Computes the merge point between 2 lists.
      * Conditions:
-     *      - We assume the linked lists are singly linked lists (for doubly linked lists this is easy).
      *      - The 2 lists have no cycles.
      *      - The 2 lists may contain any type of data.
      *      - The 2 lists are not altered inside this function.
@@ -27,14 +26,14 @@ public class LinkedListAlgos {
      * @param list2
      * @return The merge node if exists, null otherwise
      */
-    public static DoublyLinkedList.Node computeMergePoint(DoublyLinkedList list1, DoublyLinkedList list2) {
+    public static SinglyLinkedList.Node computeMergePoint(SinglyLinkedList list1, SinglyLinkedList list2) {
 
         int count1 = list1.countNodes();
         int count2 = list2.countNodes();
         int numCommonNodes = Math.abs(count1 - count2);
 
-        DoublyLinkedList.Node currLonger;
-        DoublyLinkedList.Node currShorter;
+        SinglyLinkedList.Node currLonger;
+        SinglyLinkedList.Node currShorter;
 
         if (count1 > count2) {
             currLonger = list1.getFirst();
@@ -70,14 +69,14 @@ public class LinkedListAlgos {
      * @param list2 sorted list2
      * @return
      */
-    public static <T extends Comparable<T>> DoublyLinkedList<T>.Node sortedMerge(DoublyLinkedList<T> list1, DoublyLinkedList<T> list2) {
-        DoublyLinkedList<T>.Node curr1 = list1.getFirst();
-        DoublyLinkedList<T>.Node curr2 = list2.getFirst();
-        DoublyLinkedList<T>.Node curr = null;
-        DoublyLinkedList<T>.Node newFirst = null;
+    public static <T extends Comparable<T>> SinglyLinkedList<T>.Node sortedMerge(SinglyLinkedList<T> list1, SinglyLinkedList<T> list2) {
+        SinglyLinkedList<T>.Node curr1 = list1.getFirst();
+        SinglyLinkedList<T>.Node curr2 = list2.getFirst();
+        SinglyLinkedList<T>.Node curr = null;
+        SinglyLinkedList<T>.Node newFirst = null;
 
         while (null != curr1 && null != curr2) {
-            DoublyLinkedList<T>.Node next;
+            SinglyLinkedList<T>.Node next;
 
             if (curr1.getData().compareTo(curr2.getData()) < 0) {
                 next = curr1;
