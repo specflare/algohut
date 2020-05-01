@@ -21,4 +21,11 @@ public class Interpolation {
 
         return yVals;
     }
+
+    public static float bilinearInterpolation(float[] x, float[] y,
+                            float[][] z, float xVal, float yVal) {
+        float zVal = 0.f;
+        // code follows
+        return zVal;
+    }
 }
