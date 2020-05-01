@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'scala'
 }
 
 group 'com.github.petascalr.algohut'
@@ -11,8 +12,24 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    main {
+        scala {
+            srcDirs = ['src/main/java']
+        }
+    }
+    test {
+        scala {
+            srcDirs = ['src/test/java']
+        }
+    }
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compileOnly 'org.projectlombok:lombok:1.18.8'
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+    implementation 'org.scala-lang:scala-library:2.11.12'
+    testImplementation 'org.scalatest:scalatest_2.11:3.0.0'
 }
