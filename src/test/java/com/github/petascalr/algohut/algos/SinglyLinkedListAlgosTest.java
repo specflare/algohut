@@ -44,9 +44,9 @@ public class SinglyLinkedListAlgosTest {
 //        list2.add(10);
 //        list2.add(8);
 //
-//        list2.getLast().setNext(list1.getFirst().getNext().getNext().getNext());
+//        list2.getLast().setNext(list1.getFirst().next.next.next);
 //
-//        Assert.assertEquals(1, SinglyLinkedListAlgos.computeMergePoint(list1, list2).getData());
+//        Assert.assertEquals(1, SinglyLinkedListAlgos.computeMergePoint(list1, list2).data);
 //    }
 
     @Test

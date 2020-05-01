@@ -77,8 +77,8 @@ public class DoublyLinkedList<T> {
             first = newNode;
             last = first;
         } else {
-            newNode.setNext(first);
-            first.setPrev(newNode);
+            newNode.next = first;
+            first.prev = newNode;
             first = newNode;
         }
     }
@@ -89,8 +89,8 @@ public class DoublyLinkedList<T> {
             last = newNode;
             first = last;
         } else {
-            newNode.setPrev(last);
-            last.setNext(newNode);
+            newNode.prev = last;
+            last.next = newNode;
             last = newNode;
         }
     }
@@ -103,13 +103,13 @@ public class DoublyLinkedList<T> {
         }
 
         Node newNode = new Node(what);
-        newNode.setPrev(afterNode);
-        newNode.setNext(afterNode.getNext());
+        newNode.prev = afterNode;
+        newNode.next = afterNode.next;
 
-        afterNode.setNext(newNode);
+        afterNode.next = newNode;
 
-        if (null != newNode.getNext()) {
-            newNode.getNext().setPrev(newNode);
+        if (null != newNode.next) {
+            newNode.next.prev = newNode;
         }
 
         return true;
@@ -130,18 +130,18 @@ public class DoublyLinkedList<T> {
             if (curr.equals(what)) {
                 // we found the node, just re-link everything
                 if (null != prev) {
-                    prev.setNext(curr.getNext());
+                    prev.next = curr.next;
                 }
 
-                if (null != curr.getNext()) {
-                    curr.getNext().setPrev(prev);
+                if (null != curr.next) {
+                    curr.next.prev = prev;
                 }
 
                 return true;
             }
 
             prev = curr;
-            curr = curr.getNext();
+            curr = curr.next;
         }
 
         return false;
@@ -152,8 +152,8 @@ public class DoublyLinkedList<T> {
             return false;
         }
 
-        first = first.getNext();
-        first.setPrev(null);
+        first = first.next;
+        first.prev = null;
         return true;
     }
 
@@ -162,14 +162,14 @@ public class DoublyLinkedList<T> {
             return false;
         }
 
-        last = last.getPrev();
-        last.setNext(null);
+        last = last.prev;
+        last.next = null;
         return true;
     }
 
     public boolean contains(T what) {
-        for (Node curr = first; curr != null; curr = curr.getNext()) {
-            if (curr.getData().equals(what)) {
+        for (Node curr = first; curr != null; curr = curr.next) {
+            if (curr.data.equals(what)) {
                 return true;
             }
         }
@@ -178,8 +178,8 @@ public class DoublyLinkedList<T> {
     }
 
     public Node find(T what) {
-        for (Node curr = first; curr != null; curr = curr.getNext()) {
-            if (curr.getData().equals(what)) {
+        for (Node curr = first; curr != null; curr = curr.next) {
+            if (curr.data.equals(what)) {
                 return curr;
             }
         }
@@ -188,14 +188,14 @@ public class DoublyLinkedList<T> {
     }
 
     public void foreach(Consumer<T> consume) {
-        for (Node curr = first; curr != null; curr = curr.getNext()) {
-            consume.accept(curr.getData());
+        for (Node curr = first; curr != null; curr = curr.next) {
+            consume.accept(curr.data);
         }
     }
 
     public int countNodes() {
         int count = 0;
-        for (Node curr = first; curr != null; curr = curr.getNext(), count++);
+        for (Node curr = first; curr != null; curr = curr.next, count++);
         return count;
     }
 

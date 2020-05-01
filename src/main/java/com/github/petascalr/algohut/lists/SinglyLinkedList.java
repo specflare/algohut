@@ -31,17 +31,10 @@ import lombok.Getter;
 
 import java.util.function.Consumer;
 
-@NoArgsConstructor
 public class SinglyLinkedList<T> {
-    @NoArgsConstructor
-    @AllArgsConstructor
     public class Node {
-
-        @Getter @Setter
-        Node next;
-
-        @Getter @Setter
-        T data;
+        public Node next;
+        public T data;
 
         Node(T what) {
             next = null;
@@ -49,8 +42,11 @@ public class SinglyLinkedList<T> {
         }
     }
 
-    @Getter
-    private Node first;
+    public Node first;
+
+    public SinglyLinkedList() {
+        this.first = null;
+    }
 
     public SinglyLinkedList(Node first) {
         this.first = first;
@@ -65,7 +61,7 @@ public class SinglyLinkedList<T> {
     public void add(T what) {
         Node newNode = new Node(what);
         if (null != first) {
-            newNode.setNext(first);
+            newNode.next = first;
         }
 
         first = newNode;
@@ -79,8 +75,8 @@ public class SinglyLinkedList<T> {
         }
 
         Node newNode = new Node(what);
-        newNode.setNext(afterNode.getNext());
-        afterNode.setNext(newNode);
+        newNode.next = afterNode.next;
+        afterNode.next = newNode;
 
         return true;
     }
@@ -100,14 +96,14 @@ public class SinglyLinkedList<T> {
             if (curr.equals(what)) {
                 // we found the node, just re-link everything
                 if (null != prev) {
-                    prev.setNext(curr.getNext());
+                    prev.next = curr.next;
                 }
 
                 return true;
             }
 
             prev = curr;
-            curr = curr.getNext();
+            curr = curr.next;
         }
 
         return false;
@@ -118,13 +114,13 @@ public class SinglyLinkedList<T> {
             return false;
         }
 
-        first = first.getNext();
+        first = first.next;
         return true;
     }
 
     public Node find(T what) {
-        for (Node curr = first; curr != null; curr = curr.getNext()) {
-            if (curr.getData().equals(what)) {
+        for (Node curr = first; curr != null; curr = curr.next) {
+            if (curr.data.equals(what)) {
                 return curr;
             }
         }
@@ -133,14 +129,14 @@ public class SinglyLinkedList<T> {
     }
 
     public void foreach(Consumer<T> consume) {
-        for (Node curr = first; curr != null; curr = curr.getNext()) {
-            consume.accept(curr.getData());
+        for (Node curr = first; curr != null; curr = curr.next) {
+            consume.accept(curr.data);
         }
     }
 
     public int countNodes() {
         int count = 0;
-        for (Node curr = first; curr != null; curr = curr.getNext(), count++);
+        for (Node curr = first; curr != null; curr = curr.next, count++);
         return count;
     }
 

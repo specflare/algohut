@@ -90,6 +90,6 @@ public class DoublyLinkedListTest {
         Assert.assertEquals(list.countNodes(), size + 1);
 
         DoublyLinkedList.Node prev = list.find(6);
-        Assert.assertEquals(prev.getNext().getData(), key);
+        Assert.assertEquals(prev.next.data, key);
     }
 }

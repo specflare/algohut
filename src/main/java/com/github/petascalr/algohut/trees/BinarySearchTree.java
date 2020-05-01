@@ -46,24 +46,24 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
         boolean isLeftChild = true;
 
         while (null != current) {
-            if (what.compareTo(current.getData()) == 0) {
+            if (what.compareTo(current.data) == 0) {
                 return false;
             }
 
             parent = current;
-            if (what.compareTo(current.getData()) < 0) {
-                current = current.getLeft();
+            if (what.compareTo(current.data) < 0) {
+                current = current.left;
                 isLeftChild = true;
             } else {
-                current = current.getRight();
+                current = current.right;
                 isLeftChild = false;
             }
         }
 
         if (isLeftChild) {
-            parent.setLeft(new Node(what));
+            parent.left = new Node(what);
         } else {
-            parent.setRight(new Node(what));
+            parent.right = new Node(what);
         }
 
         return true;

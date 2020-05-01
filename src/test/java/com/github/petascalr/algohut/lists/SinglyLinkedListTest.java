@@ -78,6 +78,6 @@ public class SinglyLinkedListTest {
         Assert.assertEquals(list.countNodes(), size + 1);
 
         SinglyLinkedList.Node prev = list.find(6);
-        Assert.assertEquals(prev.getNext().getData(), key);
+        Assert.assertEquals(prev.next.data, key);
     }
 }

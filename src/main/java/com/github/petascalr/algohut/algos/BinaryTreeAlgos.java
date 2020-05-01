@@ -43,12 +43,12 @@ public class BinaryTreeAlgos {
             return null;
         }
 
-        if (localRoot.getData().equals(key1) || localRoot.getData().equals(key2)) {
+        if (localRoot.data.equals(key1) || localRoot.data.equals(key2)) {
             return localRoot;
         }
 
-        BinaryTree.Node left = findLCA(localRoot.getLeft(), key1, key2);
-        BinaryTree.Node right = findLCA(localRoot.getRight(), key1, key2);
+        BinaryTree.Node left = findLCA(localRoot.left, key1, key2);
+        BinaryTree.Node right = findLCA(localRoot.right, key1, key2);
 
         if (left != null && right != null) {
             return localRoot;

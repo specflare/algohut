@@ -60,26 +60,26 @@ public class SinglyLinkedListAlgos {
         SinglyLinkedList.Node currShorter;
 
         if (count1 > count2) {
-            currLonger = list1.getFirst();
-            currShorter = list2.getFirst();
+            currLonger = list1.first;
+            currShorter = list2.first;
         } else {
-            currLonger = list2.getFirst();
-            currShorter = list1.getFirst();
+            currLonger = list2.first;
+            currShorter = list1.first;
         }
 
         while (null != currLonger && numCommonNodes > 0) {
-            currLonger = currLonger.getNext();
+            currLonger = currLonger.next;
             numCommonNodes--;
         }
 
         // Now both lists have an equal number of remaining nodes.
         while (null != currLonger && null != currShorter) {
-            if (currLonger.getData().equals(currShorter.getData())) {
+            if (currLonger.data.equals(currShorter.data)) {
                 return currLonger;
             }
 
-            currLonger = currLonger.getNext();
-            currShorter = currShorter.getNext();
+            currLonger = currLonger.next;
+            currShorter = currShorter.next;
         }
 
         return null;
@@ -94,24 +94,24 @@ public class SinglyLinkedListAlgos {
      * @return
      */
     public static <T extends Comparable<T>> SinglyLinkedList<T>.Node sortedMerge(SinglyLinkedList<T> list1, SinglyLinkedList<T> list2) {
-        SinglyLinkedList<T>.Node curr1 = list1.getFirst();
-        SinglyLinkedList<T>.Node curr2 = list2.getFirst();
+        SinglyLinkedList<T>.Node curr1 = list1.first;
+        SinglyLinkedList<T>.Node curr2 = list2.first;
         SinglyLinkedList<T>.Node curr = null;
         SinglyLinkedList<T>.Node newFirst = null;
 
         while (null != curr1 && null != curr2) {
             SinglyLinkedList<T>.Node next;
 
-            if (curr1.getData().compareTo(curr2.getData()) < 0) {
+            if (curr1.data.compareTo(curr2.data) < 0) {
                 next = curr1;
-                curr1 = curr1.getNext();
-            } else if (curr1.getData().compareTo(curr2.getData()) > 0) {
+                curr1 = curr1.next;
+            } else if (curr1.data.compareTo(curr2.data) > 0) {
                 next = curr2;
-                curr2 = curr2.getNext();
+                curr2 = curr2.next;
             } else {
                 next = curr1;
-                curr1 = curr1.getNext();
-                curr2 = curr2.getNext();
+                curr1 = curr1.next;
+                curr2 = curr2.next;
             }
 
             // this only happens at first iteration
@@ -120,16 +120,16 @@ public class SinglyLinkedListAlgos {
                 curr = next;
             } else {
                 // from 2nd iteration onwards
-                curr.setNext(next);
+                curr.next = next;
                 curr = next;
             }
         }
 
         if (null != curr) {
             if (null == curr1) {
-                curr.setNext(curr2);
+                curr.next = curr2;
             } else {
-                curr.setNext(curr1);
+                curr.next = curr1;
             }
         }
 

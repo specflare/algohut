@@ -31,23 +31,14 @@ import lombok.Setter;
 
 import java.util.function.Consumer;
 
-@NoArgsConstructor
 public abstract class BinaryTree<T extends Comparable<T> > {
     /**
      * Represents a Node in the BST.
      */
-    @AllArgsConstructor
-    @NoArgsConstructor
     public class Node {
-
-        @Getter @Setter
-        private T data;
-
-        @Getter @Setter
-        private Node left;
-
-        @Getter @Setter
-        private Node right;
+        public T data;
+        public Node left;
+        public Node right;
 
         Node(T what) {
             this.data = what;
@@ -81,8 +72,7 @@ public abstract class BinaryTree<T extends Comparable<T> > {
         POSTORDER
     }
 
-    @Getter
-    Node root;
+    public Node root;
 
     /**
      * Deletes a leaf node from the BST.
@@ -102,11 +92,11 @@ public abstract class BinaryTree<T extends Comparable<T> > {
         while (null != current) {
             parent = current;
 
-            if (key.compareTo(current.getData()) < 0) {
-                current = current.getLeft();
+            if (key.compareTo(current.data) < 0) {
+                current = current.left;
                 isLeftChild = true;
-            } else if (key.compareTo(current.getData()) > 0) {
-                current = current.getRight();
+            } else if (key.compareTo(current.data) > 0) {
+                current = current.right;
                 isLeftChild = false;
             } else {
                 // we found the node, we need to check if it's a leaf.
@@ -119,9 +109,9 @@ public abstract class BinaryTree<T extends Comparable<T> > {
         }
 
         if (isLeftChild) {
-            parent.setLeft(null);
+            parent.left = null;
         } else {
-            parent.setRight(null);
+            parent.right = null;
         }
 
         return true;
@@ -136,12 +126,12 @@ public abstract class BinaryTree<T extends Comparable<T> > {
 //            return false;
 //        }
 //
-//        if (key.compareTo(localRoot.getData()) < 0) {
-//            return containsImpl(localRoot.getLeft(), key);
+//        if (key.compareTo(localRoot.data) < 0) {
+//            return containsImpl(localRoot.left, key);
 //        }
 //
-//        if (key.compareTo(localRoot.getData()) > 0) {
-//            return containsImpl(localRoot.getRight(), key);
+//        if (key.compareTo(localRoot.data) > 0) {
+//            return containsImpl(localRoot.right, key);
 //        }
 //
 //        return true;
@@ -165,7 +155,7 @@ public abstract class BinaryTree<T extends Comparable<T> > {
 
     private void visitPreOrder(Node localRoot, Consumer<T> consume) {
         if (null != localRoot) {
-            consume.accept(localRoot.getData());
+            consume.accept(localRoot.data);
             visitPreOrder(localRoot.left, consume);
             visitPreOrder(localRoot.right, consume);
         }
@@ -174,7 +164,7 @@ public abstract class BinaryTree<T extends Comparable<T> > {
     private void visitInOrder(Node localRoot, Consumer<T> consume) {
         if (null != localRoot) {
             visitInOrder(localRoot.left, consume);
-            consume.accept(localRoot.getData());
+            consume.accept(localRoot.data);
             visitInOrder(localRoot.right, consume);
         }
     }
@@ -183,7 +173,7 @@ public abstract class BinaryTree<T extends Comparable<T> > {
         if (null != localRoot) {
             visitPostOrder(localRoot.left, consume);
             visitPostOrder(localRoot.right, consume);
-            consume.accept(localRoot.getData());
+            consume.accept(localRoot.data);
         }
     }
 
@@ -194,7 +184,7 @@ public abstract class BinaryTree<T extends Comparable<T> > {
         }
 
         BinaryTree bt = (BinaryTree) rhs;
-        return equalsImpl(root, bt.getRoot());
+        return equalsImpl(root, bt.root);
     }
 
     private boolean equalsImpl(Node lhs, Node rhs) {
