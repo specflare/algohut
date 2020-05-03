@@ -24,28 +24,13 @@
 
 package com.github.petascalr.algohut.lists;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.util.function.Consumer;
 
-@NoArgsConstructor
 public class DoublyLinkedList<T> {
-
-    @NoArgsConstructor
-    @AllArgsConstructor
     public class Node {
-
-        @Getter @Setter
-        Node next;
-
-        @Getter @Setter
-        Node prev;
-
-        @Getter @Setter
-        T data;
+        public Node next;
+        public Node prev;
+        public T data;
 
         Node(T what) {
            next = null;
@@ -54,11 +39,13 @@ public class DoublyLinkedList<T> {
         }
     }
 
-    @Getter
-    private Node first;
+    public Node first;
+    public Node last;
 
-    @Getter
-    private Node last;
+    public DoublyLinkedList() {
+        this.first = null;
+        this.last = null;
+    }
 
     public DoublyLinkedList(Node first) {
         this.first = first;

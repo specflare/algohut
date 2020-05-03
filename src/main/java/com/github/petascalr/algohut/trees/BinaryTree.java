@@ -23,12 +23,6 @@
  */
 
 package com.github.petascalr.algohut.trees;
-
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.function.Consumer;
 
 public abstract class BinaryTree<T extends Comparable<T> > {

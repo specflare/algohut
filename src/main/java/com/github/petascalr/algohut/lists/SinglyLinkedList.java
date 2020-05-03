@@ -24,11 +24,6 @@
 
 package com.github.petascalr.algohut.lists;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.Getter;
-
 import java.util.function.Consumer;
 
 public class SinglyLinkedList<T> {
