@@ -1,5 +1,10 @@
 package com.github.petascalr.algohut.numerics;
 
+import java.io.Serializable;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.Consumer;
+
 public class Interpolation {
     public static float linearInterpolation(float[] X, float[] Y, float xVal) {
         assert(X.length == Y.length);
@@ -24,8 +29,6 @@ public class Interpolation {
 
     public static float bilinearInterpolation(float[] x, float[] y,
                             float[][] z, float xVal, float yVal) {
-        float zVal = 0.f;
-        // code follows
-        return zVal;
+        return 0.0f;
     }
 }
