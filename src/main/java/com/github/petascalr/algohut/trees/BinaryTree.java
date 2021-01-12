@@ -25,48 +25,14 @@
 package com.github.petascalr.algohut.trees;
 import java.util.function.Consumer;
 
-public abstract class BinaryTree<T extends Comparable<T> > {
-    /**
-     * Represents a Node in the BST.
-     */
-    public class Node {
-        public T data;
-        public Node left;
-        public Node right;
-
-        Node(T what) {
-            this.data = what;
-            left = right = null;
-        }
-
-        boolean isLeaf() {
-            return ((left == null) && (right == null));
-        }
-
-        public boolean contains(T key) {
-            if (key.equals(data)) {
-                return true;
-            }
-
-            if (key.compareTo(data) < 0) {
-                return left.contains(key);
-            }
-
-            if (key.compareTo(data) > 0) {
-                return right.contains(key);
-            }
-
-            return false;
-        }
-    }
-
+public class BinaryTree<T extends Comparable<T> > {
     public enum VisitOrder {
         PREORDER,
         INORDER,
         POSTORDER
     }
 
-    public Node root;
+    public BinaryTreeNode<T> root;
 
     /**
      * Deletes a leaf node from the BST.
@@ -75,8 +41,8 @@ public abstract class BinaryTree<T extends Comparable<T> > {
      * @return true if key is found (and it is a leaf), false otherwise.
      */
     public boolean deleteLeaf(T key) {
-        Node current = root;
-        Node parent = current;
+        BinaryTreeNode<T> current = root;
+        BinaryTreeNode<T> parent = current;
         boolean isLeftChild = true;
 
         if (null == root) {
@@ -115,22 +81,6 @@ public abstract class BinaryTree<T extends Comparable<T> > {
         return root.contains(key);
     }
 
-//    private boolean containsImpl(Node localRoot, T key) {
-//        if (null == localRoot) {
-//            return false;
-//        }
-//
-//        if (key.compareTo(localRoot.data) < 0) {
-//            return containsImpl(localRoot.left, key);
-//        }
-//
-//        if (key.compareTo(localRoot.data) > 0) {
-//            return containsImpl(localRoot.right, key);
-//        }
-//
-//        return true;
-//    }
-
     public void visit(VisitOrder order, Consumer<T> consume) {
         switch (order) {
             case PREORDER:
@@ -147,7 +97,7 @@ public abstract class BinaryTree<T extends Comparable<T> > {
         }
     }
 
-    private void visitPreOrder(Node localRoot, Consumer<T> consume) {
+    private void visitPreOrder(BinaryTreeNode<T> localRoot, Consumer<T> consume) {
         if (null != localRoot) {
             consume.accept(localRoot.data);
             visitPreOrder(localRoot.left, consume);
@@ -155,7 +105,7 @@ public abstract class BinaryTree<T extends Comparable<T> > {
         }
     }
 
-    private void visitInOrder(Node localRoot, Consumer<T> consume) {
+    private void visitInOrder(BinaryTreeNode<T> localRoot, Consumer<T> consume) {
         if (null != localRoot) {
             visitInOrder(localRoot.left, consume);
             consume.accept(localRoot.data);
@@ -163,7 +113,7 @@ public abstract class BinaryTree<T extends Comparable<T> > {
         }
     }
 
-    private void visitPostOrder(Node localRoot, Consumer<T> consume) {
+    private void visitPostOrder(BinaryTreeNode<T> localRoot, Consumer<T> consume) {
         if (null != localRoot) {
             visitPostOrder(localRoot.left, consume);
             visitPostOrder(localRoot.right, consume);
@@ -181,7 +131,7 @@ public abstract class BinaryTree<T extends Comparable<T> > {
         return equalsImpl(root, bt.root);
     }
 
-    private boolean equalsImpl(Node lhs, Node rhs) {
+    private boolean equalsImpl(BinaryTreeNode<T> lhs, BinaryTreeNode<T> rhs) {
         if (null == lhs && null == rhs) {
             return true;
         }

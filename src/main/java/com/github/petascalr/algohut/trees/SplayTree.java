@@ -24,5 +24,14 @@
 
 package com.github.petascalr.algohut.trees;
 
-public class SplayTree {
+public class SplayTree<T extends Comparable<T>> extends BinarySearchTree<T> {
+    class SplayNode<T extends Comparable<T>> extends BinaryTreeNode<T> {
+        public SplayNode(T key) {
+            super(key);
+        }
+
+        public void rotateLeft() {
+            
+        }
+    }
 }

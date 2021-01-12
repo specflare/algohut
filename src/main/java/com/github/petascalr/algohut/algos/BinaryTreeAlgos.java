@@ -37,7 +37,7 @@ public class BinaryTreeAlgos {
      * @param <T> Comparable key type (e.g. Integer)
      * @return reference to the common ancestor or null if not found.
      */
-    public static <T extends Comparable<T>> BinaryTree.Node findLCA(BinaryTree.Node localRoot, T key1, T key2) {
+    public static <T extends Comparable<T>> BinaryTreeNode<T> findLCA(BinaryTreeNode<T> localRoot, T key1, T key2) {
 
         if (localRoot == null) {
             return null;
@@ -47,8 +47,8 @@ public class BinaryTreeAlgos {
             return localRoot;
         }
 
-        BinaryTree.Node left = findLCA(localRoot.left, key1, key2);
-        BinaryTree.Node right = findLCA(localRoot.right, key1, key2);
+        BinaryTreeNode<T> left = findLCA(localRoot.left, key1, key2);
+        BinaryTreeNode<T> right = findLCA(localRoot.right, key1, key2);
 
         if (left != null && right != null) {
             return localRoot;
@@ -64,15 +64,15 @@ public class BinaryTreeAlgos {
      *  Solution 1: Traverse the tree level by level (easy): O(n^2) time complexity.
      *  Solution 2:
      */
-    public static <T extends Comparable<T>> void SpiralTraversal(BinaryTree.Node root) {
+    public static <T extends Comparable<T>> void SpiralTraversal(BinaryTreeNode<T> root) {
 
     }
 
-    public static <T extends Comparable<T>> void TopDownTraversal(BinaryTree.Node root) {
+    public static <T extends Comparable<T>> void TopDownTraversal(BinaryTreeNode<T> root) {
 
     }
 
-    public static <T extends Comparable<T>> void BottomUpTraversal(BinaryTree.Node root) {
+    public static <T extends Comparable<T>> void BottomUpTraversal(BinaryTreeNode<T> root) {
 
     }
 }

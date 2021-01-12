@@ -31,7 +31,7 @@ public class SinglyLinkedListAlgos {
     private SinglyLinkedListAlgos(){}
 
     /**
-     * Computes the merge point between 2 lists.
+     * Computes the merge point between 2 lists (The list looks like 'Y').
      * Conditions:
      *      - The 2 lists have no cycles.
      *      - The 2 lists may contain any type of data.
@@ -117,12 +117,11 @@ public class SinglyLinkedListAlgos {
             // this only happens at first iteration
             if (null == newFirst) {
                 newFirst = next;
-                curr = next;
             } else {
                 // from 2nd iteration onwards
                 curr.next = next;
-                curr = next;
             }
+            curr = next;
         }
 
         if (null != curr) {

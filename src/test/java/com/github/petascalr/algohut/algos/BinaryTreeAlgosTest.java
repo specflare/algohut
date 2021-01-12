@@ -45,9 +45,9 @@ public class BinaryTreeAlgosTest {
         bst.insert(12);
         bst.insert(11);
 
-        Assert.assertEquals(10, BinaryTreeAlgos.findLCA(bst.root, 1, 11).data);
-        Assert.assertEquals(5, BinaryTreeAlgos.findLCA(bst.root, 4, 7).data);
-        Assert.assertEquals(3, BinaryTreeAlgos.findLCA(bst.root, 1, 4).data);
+        Assert.assertEquals(10, BinaryTreeAlgos.findLCA(bst.root, 1, 11).data.intValue());
+        Assert.assertEquals(5, BinaryTreeAlgos.findLCA(bst.root, 4, 7).data.intValue());
+        Assert.assertEquals(3, BinaryTreeAlgos.findLCA(bst.root, 1, 4).data.intValue());
 
         // Assert.assertEquals(3, BinaryTreeAlgos.findLCA(bst.root, 15, 45).data);
     }

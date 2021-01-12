@@ -39,7 +39,7 @@ public class BinarySearchTreeTest {
         ArrayList<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < 1000; i++) {
-            Integer elem = rand.nextInt(10000);
+            int elem = rand.nextInt(10000);
             bt.insert(elem);
             list.add(elem);
         }
@@ -55,8 +55,7 @@ public class BinarySearchTreeTest {
         ArrayList<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < 1000; i++) {
-            Integer elem = rand.nextInt(10000);
-            bt.insert(elem);
+            bt.insert(rand.nextInt(10000));
         }
 
         bt.visit( BinaryTree.VisitOrder.INORDER, list::add);

@@ -37,16 +37,16 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
      */
     public boolean insert(T what) {
         if (null == root) {
-            root = new Node(what);
+            root = new BinaryTreeNode<T>(what);
             return true;
         }
 
-        Node parent = root;
-        Node current = root;
+        BinaryTreeNode<T> parent = root;
+        BinaryTreeNode<T> current = root;
         boolean isLeftChild = true;
 
         while (null != current) {
-            if (what.compareTo(current.data) == 0) {
+            if (what.equals(current.data)) {
                 return false;
             }
 
@@ -61,9 +61,9 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
         }
 
         if (isLeftChild) {
-            parent.left = new Node(what);
+            parent.left = new BinaryTreeNode<T>(what);
         } else {
-            parent.right = new Node(what);
+            parent.right = new BinaryTreeNode<T>(what);
         }
 
         return true;
