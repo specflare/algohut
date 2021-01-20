@@ -1,28 +1,25 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+    id 'scala'
 }
 
 group 'com.github.petascalr.algohut'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.0.2-1"
     testImplementation group: 'junit', name: 'junit', version: '4.12'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation 'org.slf4j:slf4j-jdk14:1.7.25'
-
-    implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: '1.0.2-1'
+    compile 'org.scala-lang:scala-library:2.11.12'
 }
 
 sourceSets {
     main.java.srcDirs = ['src/main/java']
-    main.kotlin.srcDirs = ['src/main/java', 'src/main/kotlin']
+    main.scala.srcDirs = ['src/main/scala']
     main.resources.srcDirs = ['src/main/resources']
 }
