@@ -46,7 +46,7 @@ public class Sorting {
         return i;
     }
 
-    // Merge Sort: O(n*log(n))
+    // Merge Sort: Time: O(n*log(n)); Space O(n)
     public static void mergeSort(int[] arr) {
         if (arr.length > 1) {
             mergeSort_r(arr, 0, arr.length - 1);
@@ -107,6 +107,38 @@ public class Sorting {
             arr[k] = R[j];
             j++;
             k++;
+        }
+    }
+
+    // Insertion Sort: O(n^2)
+    // Insertion sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands.
+    // The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and
+    // placed at the correct position in the sorted part.
+    public static void insertionSort(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            // we find the position for arr[i], between 0 and i-1
+            int j = i - 1;
+            int key = arr[i];
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+
+            arr[j + 1] = key;
+        }
+    }
+
+    // Select Sort: O(n^2)
+    // At every step, we select the minimum from the unsorted array, and place it into position
+    public static void selectSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    arr[i] ^= arr[j];
+                    arr[j] ^= arr[i];
+                    arr[i] ^= arr[j];
+                }
+            }
         }
     }
 }
