@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2019 Liviu Gheorghisan <petascalr@gmail.com>
+ * Copyright (c) 2021 Liviu Gheorghisan <specflare@gmail.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -127,7 +127,7 @@ public class BinaryTree<T extends Comparable<T> > {
             return false;
         }
 
-        BinaryTree bt = (BinaryTree) rhs;
+        BinaryTree<T> bt = (BinaryTree<T>) rhs;
         return equalsImpl(root, bt.root);
     }
 
