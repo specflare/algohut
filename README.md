@@ -1,5 +1,5 @@
 # algohut
-A collection of data structures and algorithms implemented in Java/Scala. The purpose of this project is purely didactic.
+A collection of data structures and algorithms implemented in Java. The purpose of this project is purely didactic.
 
 ## Data structures
 * Trees
