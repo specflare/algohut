@@ -25,8 +25,8 @@
 package com.specflare.algohut.algos;
 
 import com.specflare.algohut.lists.SinglyLinkedList;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class SinglyLinkedListAlgosTest {
 //    @Test
@@ -46,7 +46,7 @@ public class SinglyLinkedListAlgosTest {
 //
 //        list2.getLast().setNext(list1.getFirst().next.next.next);
 //
-//        Assert.assertEquals(1, SinglyLinkedListAlgos.computeMergePoint(list1, list2).data);
+//        Assertions.assertEquals(1, SinglyLinkedListAlgos.computeMergePoint(list1, list2).data);
 //    }
 
     @Test
@@ -67,7 +67,7 @@ public class SinglyLinkedListAlgosTest {
         list2.add(2);
         list2.add(1);
 
-        Assert.assertNull(SinglyLinkedListAlgos.computeMergePoint(list1, list2));
+        Assertions.assertNull(SinglyLinkedListAlgos.computeMergePoint(list1, list2));
     }
 
 //    @Test
@@ -81,6 +81,6 @@ public class SinglyLinkedListAlgosTest {
 //        // please note that this implementation destroys the original lists, because it does the computations in place: O(n) time, O(1) space.
 //        SinglyLinkedList<Integer>.Node first = SinglyLinkedListAlgos.sortedMerge(list1, list2);
 //        SinglyLinkedList<Integer> listResult = new SinglyLinkedList<>(first);
-//        Assert.assertEquals(9, listResult.countNodes());
+//        Assertions.assertEquals(9, listResult.countNodes());
 //    }
 }

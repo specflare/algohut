@@ -24,8 +24,8 @@
 
 package com.specflare.algohut.trees;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -45,7 +45,7 @@ public class BinarySearchTreeTest {
         }
 
         for (Integer i : list) {
-            Assert.assertTrue(bt.contains(i));
+            Assertions.assertTrue(bt.contains(i));
         }
     }
 
@@ -62,7 +62,7 @@ public class BinarySearchTreeTest {
 
         // now the elems should be in ascending order in list.
         for (int i = 1; i < list.size(); i++) {
-            Assert.assertTrue(list.get(i).compareTo(list.get(i - 1)) > 0);
+            Assertions.assertTrue(list.get(i).compareTo(list.get(i - 1)) > 0);
         }
     }
 }

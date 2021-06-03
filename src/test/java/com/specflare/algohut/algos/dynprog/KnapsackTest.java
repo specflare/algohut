@@ -1,7 +1,7 @@
 package com.specflare.algohut.algos.dynprog;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class KnapsackTest {
     static final int KNAPSACK_CAPACITY = 20;
@@ -18,11 +18,11 @@ public class KnapsackTest {
 
     @Test
     public void knapsackRecTest() {
-        Assert.assertEquals(EXPECTED_CARRIED_VAL, Knapsack.knapsackRec(items, items.length, KNAPSACK_CAPACITY));
+        Assertions.assertEquals(EXPECTED_CARRIED_VAL, Knapsack.knapsackRec(items, items.length, KNAPSACK_CAPACITY));
     }
 
     @Test
     public void knapsackIterativeTest() {
-        Assert.assertEquals(EXPECTED_CARRIED_VAL, Knapsack.knapsackIterative(items, items.length, KNAPSACK_CAPACITY));
+        Assertions.assertEquals(EXPECTED_CARRIED_VAL, Knapsack.knapsackIterative(items, items.length, KNAPSACK_CAPACITY));
     }
 }

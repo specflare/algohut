@@ -1,109 +1,109 @@
 package com.specflare.algohut.leetcode;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class LeetCodeTest {
     @Test
     public void longestValidParenString() {
-        Assert.assertEquals(0, LeetCode.longestValidParentheses(""));
-        Assert.assertEquals(0, LeetCode.longestValidParentheses(")"));
-        Assert.assertEquals(0, LeetCode.longestValidParentheses("("));
-        Assert.assertEquals(0, LeetCode.longestValidParentheses(")))))))"));
-        Assert.assertEquals(0, LeetCode.longestValidParentheses("((((((("));
-        Assert.assertEquals(0, LeetCode.longestValidParentheses(")("));
-        Assert.assertEquals(0, LeetCode.longestValidParentheses(")))((("));
-        // Assert.assertEquals(8, LeetCode.longestValidParentheses(")()()((((())))"));
-        Assert.assertEquals(2, LeetCode.longestValidParentheses("()"));
-        Assert.assertEquals(2, LeetCode.longestValidParentheses("))()))"));
-        Assert.assertEquals(4, LeetCode.longestValidParentheses(")()())"));
-        Assert.assertEquals(12, LeetCode.longestValidParentheses(")()()(((())))))()"));
-        Assert.assertEquals(2, LeetCode.longestValidParentheses("(()(((()"));
-        // Assert.assertEquals(4, LeetCode.longestValidParentheses("(()())"));
+        Assertions.assertEquals(0, LeetCode.longestValidParentheses(""));
+        Assertions.assertEquals(0, LeetCode.longestValidParentheses(")"));
+        Assertions.assertEquals(0, LeetCode.longestValidParentheses("("));
+        Assertions.assertEquals(0, LeetCode.longestValidParentheses(")))))))"));
+        Assertions.assertEquals(0, LeetCode.longestValidParentheses("((((((("));
+        Assertions.assertEquals(0, LeetCode.longestValidParentheses(")("));
+        Assertions.assertEquals(0, LeetCode.longestValidParentheses(")))((("));
+        Assertions.assertEquals(8, LeetCode.longestValidParentheses(")()()((((())))"));
+        Assertions.assertEquals(2, LeetCode.longestValidParentheses("()"));
+        Assertions.assertEquals(2, LeetCode.longestValidParentheses("))()))"));
+        Assertions.assertEquals(4, LeetCode.longestValidParentheses(")()())"));
+        Assertions.assertEquals(12, LeetCode.longestValidParentheses(")()()(((())))))()"));
+        Assertions.assertEquals(2, LeetCode.longestValidParentheses("(()(((()"));
+        // Assertions.assertEquals(4, LeetCode.longestValidParentheses("(()())"));
 
     }
 
     @Test
     public void isPalindrome() {
-        Assert.assertTrue(LeetCode.isPalindrome(121));
-        Assert.assertFalse(LeetCode.isPalindrome(-121));
-        Assert.assertFalse(LeetCode.isPalindrome(1212));
+        Assertions.assertTrue(LeetCode.isPalindrome(121));
+        Assertions.assertFalse(LeetCode.isPalindrome(-121));
+        Assertions.assertFalse(LeetCode.isPalindrome(1212));
 
-        Assert.assertTrue(LeetCode.isPalindrome(0));
-        Assert.assertTrue(LeetCode.isPalindrome(-0));
-        Assert.assertTrue(LeetCode.isPalindrome(1));
-        Assert.assertTrue(LeetCode.isPalindrome(99));
-        Assert.assertTrue(LeetCode.isPalindrome(100000001));
-        Assert.assertTrue(LeetCode.isPalindrome(9870789));
+        Assertions.assertTrue(LeetCode.isPalindrome(0));
+        Assertions.assertTrue(LeetCode.isPalindrome(-0));
+        Assertions.assertTrue(LeetCode.isPalindrome(1));
+        Assertions.assertTrue(LeetCode.isPalindrome(99));
+        Assertions.assertTrue(LeetCode.isPalindrome(100000001));
+        Assertions.assertTrue(LeetCode.isPalindrome(9870789));
     }
 
     @Test
     public void testIndexPosition() {
-        Assert.assertEquals(2, LeetCode.searchInsertPosition(new int[] {1, 3, 5, 6}, 5));
-        Assert.assertEquals(3, LeetCode.searchInsertPosition(new int[] {1, 3, 5, 6}, 6));
-        Assert.assertEquals(0, LeetCode.searchInsertPosition(new int[] {1, 3, 5, 6}, 0));
-        Assert.assertEquals(4, LeetCode.searchInsertPosition(new int[] {1, 3, 5, 6}, 7));
+        Assertions.assertEquals(2, LeetCode.searchInsertPosition(new int[] {1, 3, 5, 6}, 5));
+        Assertions.assertEquals(3, LeetCode.searchInsertPosition(new int[] {1, 3, 5, 6}, 6));
+        Assertions.assertEquals(0, LeetCode.searchInsertPosition(new int[] {1, 3, 5, 6}, 0));
+        Assertions.assertEquals(4, LeetCode.searchInsertPosition(new int[] {1, 3, 5, 6}, 7));
 
-        Assert.assertEquals(0, LeetCode.searchInsertPosition(new int[] {}, 7));
-        Assert.assertEquals(0, LeetCode.searchInsertPosition(new int[] {}, 0));
+        Assertions.assertEquals(0, LeetCode.searchInsertPosition(new int[] {}, 7));
+        Assertions.assertEquals(0, LeetCode.searchInsertPosition(new int[] {}, 0));
 
-        Assert.assertEquals(0, LeetCode.searchInsertPosition(new int[] {5}, 0));
-        Assert.assertEquals(1, LeetCode.searchInsertPosition(new int[] {5}, 10));
-        Assert.assertEquals(0, LeetCode.searchInsertPosition(new int[] {5}, 5));
+        Assertions.assertEquals(0, LeetCode.searchInsertPosition(new int[] {5}, 0));
+        Assertions.assertEquals(1, LeetCode.searchInsertPosition(new int[] {5}, 10));
+        Assertions.assertEquals(0, LeetCode.searchInsertPosition(new int[] {5}, 5));
 
-        Assert.assertEquals(0, LeetCode.searchInsertPosition(new int[] {5, 10}, 0));
-        Assert.assertEquals(1, LeetCode.searchInsertPosition(new int[] {5, 10}, 7));
-        Assert.assertEquals(2, LeetCode.searchInsertPosition(new int[] {5, 10}, 12));
-        Assert.assertEquals(0, LeetCode.searchInsertPosition(new int[] {5, 10}, 5));
-        Assert.assertEquals(1, LeetCode.searchInsertPosition(new int[] {5, 10}, 10));
+        Assertions.assertEquals(0, LeetCode.searchInsertPosition(new int[] {5, 10}, 0));
+        Assertions.assertEquals(1, LeetCode.searchInsertPosition(new int[] {5, 10}, 7));
+        Assertions.assertEquals(2, LeetCode.searchInsertPosition(new int[] {5, 10}, 12));
+        Assertions.assertEquals(0, LeetCode.searchInsertPosition(new int[] {5, 10}, 5));
+        Assertions.assertEquals(1, LeetCode.searchInsertPosition(new int[] {5, 10}, 10));
 
 
-        Assert.assertEquals(0, LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 5));
-        Assert.assertEquals(1, LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 10));
-        Assert.assertEquals(2, LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 15));
+        Assertions.assertEquals(0, LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 5));
+        Assertions.assertEquals(1, LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 10));
+        Assertions.assertEquals(2, LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 15));
 
-        Assert.assertEquals(0, LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 2));
-        Assert.assertEquals(1, LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 7));
-        Assert.assertEquals(2,  LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 12));
-        Assert.assertEquals(3,  LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 18));
+        Assertions.assertEquals(0, LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 2));
+        Assertions.assertEquals(1, LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 7));
+        Assertions.assertEquals(2,  LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 12));
+        Assertions.assertEquals(3,  LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 18));
 
-        Assert.assertEquals(0,  LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 5));
-        Assert.assertEquals(1,  LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 10));
-        Assert.assertEquals(2,  LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 15));
+        Assertions.assertEquals(0,  LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 5));
+        Assertions.assertEquals(1,  LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 10));
+        Assertions.assertEquals(2,  LeetCode.searchInsertPosition(new int[] {5, 10, 15}, 15));
     }
 
     // [5,1,4,null,null,3,6]
     @Test
     public void isValidBSTTest() {
-        Assert.assertFalse(LeetCode.isValidBST(new TreeNode(5,
+        Assertions.assertFalse(LeetCode.isValidBST(new TreeNode(5,
                 new TreeNode(1),
                 new TreeNode(4,
                         new TreeNode(3),
                         new TreeNode(6)
                 ))));
 
-        Assert.assertFalse(LeetCode.isValidBST(new TreeNode(5,
+        Assertions.assertFalse(LeetCode.isValidBST(new TreeNode(5,
                 new TreeNode(1),
                 new TreeNode(8,
                         new TreeNode(3),
                         new TreeNode(6)
                 ))));
 
-        Assert.assertFalse(LeetCode.isValidBST(new TreeNode(5,
+        Assertions.assertFalse(LeetCode.isValidBST(new TreeNode(5,
                 new TreeNode(1),
                 new TreeNode(4)
         )));
 
-        Assert.assertTrue(LeetCode.isValidBST(new TreeNode(5,
+        Assertions.assertTrue(LeetCode.isValidBST(new TreeNode(5,
                 new TreeNode(1),
                 new TreeNode(7)
         )));
 
-        Assert.assertTrue(LeetCode.isValidBST(new TreeNode(4)));
-        Assert.assertTrue(LeetCode.isValidBST(null));
+        Assertions.assertTrue(LeetCode.isValidBST(new TreeNode(4)));
+        Assertions.assertTrue(LeetCode.isValidBST(null));
 
         // [5,4,6,null,null,3,7]
-        Assert.assertFalse(LeetCode.isValidBST(new TreeNode(5,
+        Assertions.assertFalse(LeetCode.isValidBST(new TreeNode(5,
                 new TreeNode(4),
                 new TreeNode(6,
                     new TreeNode(3),
@@ -111,12 +111,12 @@ public class LeetCodeTest {
                     )
         )));
 
-        Assert.assertTrue(LeetCode.isValidBST(new TreeNode(5,
+        Assertions.assertTrue(LeetCode.isValidBST(new TreeNode(5,
                 new TreeNode(Integer.MIN_VALUE),
                 new TreeNode(Integer.MAX_VALUE)
         )));
 
-        Assert.assertTrue(LeetCode.isValidBST(new TreeNode(10,
+        Assertions.assertTrue(LeetCode.isValidBST(new TreeNode(10,
                 new TreeNode(5),
                 new TreeNode(15,
                         new TreeNode(13),
@@ -124,7 +124,7 @@ public class LeetCodeTest {
                 )
         )));
 
-        Assert.assertFalse(LeetCode.isValidBST(new TreeNode(10,
+        Assertions.assertFalse(LeetCode.isValidBST(new TreeNode(10,
                 new TreeNode(5),
                 new TreeNode(15,
                         new TreeNode(Integer.MIN_VALUE),
@@ -151,12 +151,12 @@ public class LeetCodeTest {
 
     @Test
     public void countEngodingWaysTest() {
-        // Assert.assertEquals(3, LeetCode.countEngodingWays_r("111"));
+        // Assertions.assertEquals(3, LeetCode.countEngodingWays_r("111"));
 
         // aaaa, aak, aka, kaa, kk
-        Assert.assertEquals(5, LeetCode.countEngodingWays_r("1111"));
-        Assert.assertEquals(5, LeetCode.countEngodingWays_iter("1111"));
-        Assert.assertEquals(8, LeetCode.countEngodingWays_iter("11111"));
+        Assertions.assertEquals(5, LeetCode.countEngodingWays_r("1111"));
+        Assertions.assertEquals(5, LeetCode.countEngodingWays_iter("1111"));
+        Assertions.assertEquals(8, LeetCode.countEngodingWays_iter("11111"));
     }
 }
 

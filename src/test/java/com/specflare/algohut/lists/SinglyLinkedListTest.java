@@ -24,8 +24,8 @@
 
 package com.specflare.algohut.lists;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
@@ -41,7 +41,7 @@ public class SinglyLinkedListTest {
             list.add(rand.nextInt(99999));
         }
 
-        Assert.assertEquals(size, list.countNodes());
+        Assertions.assertEquals(size, list.countNodes());
     }
 
     @Test
@@ -60,7 +60,7 @@ public class SinglyLinkedListTest {
             list.add(rand.nextInt(99999));
         }
 
-        Assert.assertNotNull(list.find(key));
+        Assertions.assertNotNull(list.find(key));
     }
 
     @Test
@@ -75,9 +75,9 @@ public class SinglyLinkedListTest {
         Integer key = 13;
         list.insertAfter(key, 6);
 
-        Assert.assertEquals(list.countNodes(), size + 1);
+        Assertions.assertEquals(list.countNodes(), size + 1);
 
         SinglyLinkedList.Node prev = list.find(6);
-        Assert.assertEquals(prev.next.data, key);
+        Assertions.assertEquals(prev.next.data, key);
     }
 }

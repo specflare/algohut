@@ -1,0 +1,16 @@
+com\specflare\algohut\leetcode\LeetCodeTest.class
+com\specflare\algohut\trees\SplayTreeTest.class
+com\specflare\algohut\algos\BinaryTreeAlgosTest.class
+com\specflare\algohut\algos\dynprog\KnapsackTest.class
+com\specflare\algohut\algos\dynprog\ZeroSumSubArrayTest.class
+com\specflare\algohut\lists\DoublyLinkedListTest.class
+com\specflare\algohut\numerics\InterpolationTest.class
+com\specflare\algohut\algos\dynprog\CreateMaximumNumberTest.class
+com\specflare\algohut\numerics\NumericsTest.class
+com\specflare\algohut\algos\SinglyLinkedListAlgosTest.class
+com\specflare\algohut\lists\SinglyLinkedListTest.class
+com\specflare\algohut\trees\BinarySearchTreeTest.class
+com\specflare\algohut\algos\SortingTest.class
+com\specflare\algohut\algos\combi\PermutationsTest.class
+com\specflare\algohut\algos\dynprog\LCSTest.class
+com\specflare\algohut\trees\SuffixTreeTest.class

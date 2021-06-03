@@ -26,8 +26,8 @@ package com.specflare.algohut.algos;
 
 import com.specflare.algohut.trees.BinarySearchTree;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class BinaryTreeAlgosTest {
     @Test
@@ -45,10 +45,10 @@ public class BinaryTreeAlgosTest {
         bst.insert(12);
         bst.insert(11);
 
-        Assert.assertEquals(10, BinaryTreeAlgos.findLCA(bst.root, 1, 11).data.intValue());
-        Assert.assertEquals(5, BinaryTreeAlgos.findLCA(bst.root, 4, 7).data.intValue());
-        Assert.assertEquals(3, BinaryTreeAlgos.findLCA(bst.root, 1, 4).data.intValue());
+        Assertions.assertEquals(10, BinaryTreeAlgos.findLCA(bst.root, 1, 11).data.intValue());
+        Assertions.assertEquals(5, BinaryTreeAlgos.findLCA(bst.root, 4, 7).data.intValue());
+        Assertions.assertEquals(3, BinaryTreeAlgos.findLCA(bst.root, 1, 4).data.intValue());
 
-        // Assert.assertEquals(3, BinaryTreeAlgos.findLCA(bst.root, 15, 45).data);
+        // Assertions.assertEquals(3, BinaryTreeAlgos.findLCA(bst.root, 15, 45).data);
     }
 }
