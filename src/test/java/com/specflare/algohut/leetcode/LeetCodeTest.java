@@ -1,28 +1,10 @@
 package com.specflare.algohut.leetcode;
 
+import com.specflare.algohut.leetcode.util.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class LeetCodeTest {
-    @Test
-    public void longestValidParenString() {
-        Assertions.assertEquals(0, LeetCode.longestValidParentheses(""));
-        Assertions.assertEquals(0, LeetCode.longestValidParentheses(")"));
-        Assertions.assertEquals(0, LeetCode.longestValidParentheses("("));
-        Assertions.assertEquals(0, LeetCode.longestValidParentheses(")))))))"));
-        Assertions.assertEquals(0, LeetCode.longestValidParentheses("((((((("));
-        Assertions.assertEquals(0, LeetCode.longestValidParentheses(")("));
-        Assertions.assertEquals(0, LeetCode.longestValidParentheses(")))((("));
-        Assertions.assertEquals(8, LeetCode.longestValidParentheses(")()()((((())))"));
-        Assertions.assertEquals(2, LeetCode.longestValidParentheses("()"));
-        Assertions.assertEquals(2, LeetCode.longestValidParentheses("))()))"));
-        Assertions.assertEquals(4, LeetCode.longestValidParentheses(")()())"));
-        Assertions.assertEquals(12, LeetCode.longestValidParentheses(")()()(((())))))()"));
-        Assertions.assertEquals(2, LeetCode.longestValidParentheses("(()(((()"));
-        // Assertions.assertEquals(4, LeetCode.longestValidParentheses("(()())"));
-
-    }
-
     @Test
     public void isPalindrome() {
         Assertions.assertTrue(LeetCode.isPalindrome(121));

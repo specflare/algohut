@@ -1,62 +1,13 @@
 package com.specflare.algohut.leetcode;
 
+import com.specflare.algohut.leetcode.util.TreeNode;
+
 public class LeetCode {
 
     // given 2 sorted arrays, find the median value in O(log(m + n))
     // https://leetcode.com/problems/median-of-two-sorted-arrays/
     public double findMedianSortedArrays(int[] arr1, int[] arr2) {
         return 0.0;
-    }
-
-    // find the length of the longest matching parentheses
-    // https://leetcode.com/problems/longest-valid-parentheses/
-    public static int longestValidParentheses(String s) {
-        int sum_open = 0;
-        int sum_close = 0;
-
-        int lenBlock = 0;
-        int lenTotal = 0;
-        int maxlen = 0;
-
-        for (int i = 0; i < s.length(); i++) {
-            if (')' == s.charAt(i)) {
-                sum_close++;
-            } else if ('(' == s.charAt(i)) {
-                sum_open++;
-            }
-
-            // "())"
-            if (sum_open < sum_close) {
-                lenBlock = Math.min(sum_close, sum_open) * 2;
-                maxlen = Math.max(maxlen, lenTotal + lenBlock);
-                lenBlock = 0;
-                lenTotal = 0;
-                sum_close = 0;
-                sum_open = 0;
-            }
-
-            // () or (()) or ((()))
-            if (sum_open == sum_close) {
-                lenBlock = sum_open + sum_close;
-                lenTotal += lenBlock;
-                maxlen = Math.max(maxlen, lenTotal);
-                sum_open = 0;
-                sum_close = 0;
-            }
-
-            // ( or ((()()))
-            if (sum_open > sum_close) {
-
-                // sum_open > sum_close: ((() => len so far is 2, and we keep going...
-                int min_sum = Math.min(sum_close, sum_open);
-                lenBlock = min_sum * 2;
-                lenTotal += lenBlock;
-                maxlen = Math.max(maxlen, lenBlock);
-                sum_open -= min_sum;
-                sum_close -= min_sum;
-            }
-        }
-        return maxlen;
     }
 
     // https://leetcode.com/problems/palindrome-number/
