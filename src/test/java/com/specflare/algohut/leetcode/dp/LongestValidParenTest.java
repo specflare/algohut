@@ -1,4 +1,4 @@
-package com.specflare.algohut.leetcode;
+package com.specflare.algohut.leetcode.dp;
 
 import com.specflare.algohut.leetcode.dp.LongestValidParen;
 import org.junit.jupiter.api.Assertions;
