@@ -1,6 +1,7 @@
 package com.specflare.algohut.leetcode;
 
-import com.specflare.algohut.leetcode.util.ListNode;
+import com.specflare.algohut.leetcode.lists.AddTwoNumbersLinkedList;
+import com.specflare.algohut.leetcode.lists.ListNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

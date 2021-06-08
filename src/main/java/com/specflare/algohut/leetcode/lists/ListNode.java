@@ -1,4 +1,4 @@
-package com.specflare.algohut.leetcode.util;
+package com.specflare.algohut.leetcode.lists;
 
 public class ListNode {
     public int val;

@@ -30,7 +30,8 @@ public class BinaryTreeAlgos {
 
     private BinaryTreeAlgos(){}
     /**
-     * A node X is the common ancestor if key1 is contained inside the left subtree of X, and key2 is contained inside the right subtree of X, assuming key1 < key2
+     * A node X is the common ancestor if key1 is contained inside the left subtree of X,
+     * and key2 is contained inside the right subtree of X, assuming key1 < key2
      * This implementation variant assumes that both keys are present in the tree.
      * @param key1 first key
      * @param key2 second key

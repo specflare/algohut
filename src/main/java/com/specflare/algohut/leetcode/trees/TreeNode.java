@@ -1,4 +1,4 @@
-package com.specflare.algohut.leetcode.util;
+package com.specflare.algohut.leetcode.trees;
 
 public class TreeNode {
     public int val;
@@ -10,5 +10,10 @@ public class TreeNode {
         this.val = val;
         this.left = left;
         this.right = right;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("{\"V\": \"%d\", \"L\": %s, \"R\": %s}", val, null != left ? left.toString() : null, null != right ? right.toString() : null);
     }
 }

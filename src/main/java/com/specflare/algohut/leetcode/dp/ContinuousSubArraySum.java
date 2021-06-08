@@ -32,7 +32,8 @@ public class ContinuousSubArraySum {
         return false;
     }
 
-    // If we have 2 indices to whom we have the same module sum, we can consider these indices as start and end, and return.
+    // If we have 2 indices to whom we have the same modulo sum,
+    // we can consider these indices as start and end, and return.
     // if there are two cumulative sums, a & b such that
     // (b - a) % k = 0
     // b%k - a%k = 0

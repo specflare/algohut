@@ -9,7 +9,6 @@ package com.specflare.algohut.algos.dynprog;
  */
 
 public class LCS {
-
     // Recursive solution, without memoization
     static int lcs_rec( char[] X, char[] Y, int m, int n )
     {

@@ -1,4 +1,4 @@
-package com.specflare.algohut.leetcode;
+package com.specflare.algohut.leetcode.arrays;
 
 import java.util.Arrays;
 import java.util.HashMap;

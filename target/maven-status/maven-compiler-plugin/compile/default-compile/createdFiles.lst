@@ -1,7 +1,5 @@
-com\specflare\algohut\leetcode\TreeNode.class
 com\specflare\algohut\trees\SuffixTree$Edge.class
 com\specflare\algohut\trees\RedBlackTree.class
-com\specflare\algohut\algos\combi\Permutations.class
 com\specflare\algohut\algos\BinaryTreeAlgos.class
 com\specflare\algohut\algos\dynprog\Knapsack$Item.class
 com\specflare\algohut\lists\DoublyLinkedList.class
@@ -19,7 +17,6 @@ com\specflare\algohut\algos\dynprog\Partition.class
 com\specflare\algohut\trees\SplayTree$SplayNode.class
 com\specflare\algohut\algos\dynprog\Knapsack.class
 com\specflare\algohut\algos\dynprog\ZeroSumSubArray.class
-com\specflare\algohut\algos\dynprog\CreateMaximumNumber.class
 com\specflare\algohut\trees\BinaryTree$1.class
 com\specflare\algohut\algos\dynprog\LCS.class
 com\specflare\algohut\trees\SplayTree.class

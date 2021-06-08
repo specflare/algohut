@@ -1,5 +1,6 @@
 package com.specflare.algohut.leetcode;
 
+import com.specflare.algohut.leetcode.arrays.TwoSum;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,6 +1,4 @@
-package com.specflare.algohut.leetcode;
-
-import com.specflare.algohut.leetcode.util.ListNode;
+package com.specflare.algohut.leetcode.lists;
 
 // You are given two non-empty linked lists representing two non-negative integers. The digits are stored in
 // reverse order, and each of their nodes contains a single digit.

@@ -1,6 +1,6 @@
 package com.specflare.algohut.leetcode;
 
-import com.specflare.algohut.leetcode.util.TreeNode;
+import com.specflare.algohut.leetcode.trees.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
