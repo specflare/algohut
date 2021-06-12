@@ -75,22 +75,22 @@ public class WildcardMatching {
     }
 
     public static void main(String[] args) {
-//        System.out.println(isMatch("abcjojcd", "a*jc?"));
-//        System.out.println(isMatch("aa", "a"));
-//        System.out.println(isMatch("aa", "*"));
-//        System.out.println(isMatch("cb", "?a"));
-//        System.out.println(isMatch("adceb", "*a*b"));
-//        System.out.println(isMatch("acdcb", "a*c?b"));
-//
-//        // ---- iterative variant
-//        System.out.println("\n2D DP iterative: ");
-//        System.out.println(matches("abcjojcd", "a*jc?"));
-//        System.out.println(matches("aa", "a"));
-//        System.out.println(matches("aa", "*"));
-//        System.out.println(matches("cb", "?a"));
-//        System.out.println(matches("adceb", "*a*b"));
-//        System.out.println(matches("acdcb", "a*c?b"));
-//        System.out.println(matches("abcdefghijklmnopqr", "a*f??***************************r"));
+        System.out.println(isMatch("abcjojcd", "a*jc?"));
+        System.out.println(isMatch("aa", "a"));
+        System.out.println(isMatch("aa", "*"));
+        System.out.println(isMatch("cb", "?a"));
+        System.out.println(isMatch("adceb", "*a*b"));
+        System.out.println(isMatch("acdcb", "a*c?b"));
+
+        // ---- iterative variant
+        System.out.println("\n2D DP iterative: ");
+        System.out.println(matches("abcjojcd", "a*jc?"));
+        System.out.println(matches("aa", "a"));
+        System.out.println(matches("aa", "*"));
+        System.out.println(matches("cb", "?a"));
+        System.out.println(matches("adceb", "*a*b"));
+        System.out.println(matches("acdcb", "a*c?b"));
+        System.out.println(matches("abcdefghijklmnopqr", "a*f??***************************r"));
         System.out.println(matches("aab", "c*a*b"));
     }
 }

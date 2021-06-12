@@ -26,8 +26,6 @@ public class SuperEggDrop {
         return superEggDrop_DP(k, n);
     }
 
-
-
     public static int superEggDrop_DP(int eggs, int floors) {
         int[][] dp = new int[eggs + 1][floors + 1];
         for (int i = 0; i <= eggs; i++) {
