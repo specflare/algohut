@@ -1,4 +1,4 @@
-package com.specflare.algohut.leetcode;
+package com.specflare.algohut.leetcode.math;
 
 import java.util.Collections;
 import java.util.PriorityQueue;
@@ -16,6 +16,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * void addNum(int num) adds the integer num from the data stream to the data structure.
  * double findMedian() returns the median of all elements so far. Answers within 10-5 of the actual answer will be accepted.
  */
+// Tags: Median, Queue, PriorityQueue, Stream
 // https://leetcode.com/problems/find-median-from-data-stream/
 public class MedianOfDataStream {
     private final PriorityQueue<Integer> upperHalf, lowerHalf;

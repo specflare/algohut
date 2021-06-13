@@ -9,6 +9,7 @@ import java.util.Map;
  * return the maximum number of points that lie on the same straight line.
  */
 
+// Tags: Slope, Math, Geometry, 2D
 // https://leetcode.com/problems/max-points-on-a-line/
 public class MaxPointsOnALine {
     private static class Line {
