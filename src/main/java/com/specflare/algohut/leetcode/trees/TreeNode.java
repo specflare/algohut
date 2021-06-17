@@ -14,6 +14,18 @@ public class TreeNode {
 
     @Override
     public String toString() {
-        return String.format("{\"V\": \"%d\", \"L\": %s, \"R\": %s}", val, null != left ? left.toString() : null, null != right ? right.toString() : null);
+        StringBuffer sb = new StringBuffer();
+        print_r(this, 0, sb);
+        return sb.toString();
+    }
+
+    private void print_r(TreeNode node, int level, StringBuffer sb) {
+        if (node != null) {
+            print_r(node.left, level + 1, sb);
+            sb.append("\t".repeat(Math.max(0, level)));
+            sb.append(node.val);
+            sb.append("\n");
+            print_r(node.right, level + 1, sb);
+        }
     }
 }
