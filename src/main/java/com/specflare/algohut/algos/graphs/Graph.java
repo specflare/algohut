@@ -14,7 +14,7 @@ public class Graph {
 
     final int[][] adjMatrix;
     Edge[] edges;
-    boolean isDirected = false;
+    boolean isDirected;
 
     public int getNumEdges() {return edges.length;}
     public int getNumNodes() {return adjMatrix.length;}
@@ -24,6 +24,38 @@ public class Graph {
         adjMatrix = new int[numNodes][numNodes];
         edges = new Edge[numEdges];
         this.isDirected = isDirected;
+    }
+
+    public Graph(int[][] adjMatr) {
+        this.adjMatrix = new int[adjMatr.length][];
+        this.isDirected = false;
+
+        int numEdges = 0;
+        for (int i = 0; i < adjMatr.length; i++) {
+            this.adjMatrix[i] = new int[adjMatr[i].length];
+            // System.arraycopy(adjMatr[i], 0, this.adjMatrix[i], 0, adjMatr[i].length);
+            for (int j = 0; j < adjMatr[i].length; j++) {
+                this.adjMatrix[i][j] = adjMatr[i][j];
+
+                if (adjMatr[i][j] != 0) {
+                    numEdges++;
+                }
+
+                if (adjMatr[i][j] != adjMatr[j][i]) {
+                    this.isDirected = true;
+                }
+            }
+        }
+
+        edges = new Edge[numEdges];
+        int edgeIndex = 0;
+        for (int i = 0; i < adjMatr.length; i++) {
+            for (int j = 0; j < adjMatr[i].length; j++) {
+                if (adjMatr[i][j] != 0) {
+                    edges[edgeIndex++] = new Edge(i, j, adjMatr[i][j]);
+                }
+            }
+        }
     }
 
     public void initRandom(int maxCost) {
@@ -59,7 +91,7 @@ public class Graph {
             for (int j = 0; j < adjMatrix[i].length - 1; j++) {
                 System.out.print(adjMatrix[i][j] + ",\t");
             }
-            System.out.println(adjMatrix[i][adjMatrix.length - 1] + "} ");
+            System.out.println(adjMatrix[i][adjMatrix.length - 1] + "}, ");
         }
         System.out.print("}");
 

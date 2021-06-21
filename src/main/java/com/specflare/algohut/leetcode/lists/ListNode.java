@@ -1,5 +1,7 @@
 package com.specflare.algohut.leetcode.lists;
 
+import org.w3c.dom.NodeList;
+
 public class ListNode {
     public int val;
     public ListNode next;
@@ -43,5 +45,16 @@ public class ListNode {
         }
 
         return res;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (ListNode curr = this; curr != null; curr = curr.next) {
+            sb.append(String.format("%d, ", curr.val));
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }

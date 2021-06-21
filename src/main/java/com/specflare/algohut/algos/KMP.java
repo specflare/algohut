@@ -59,7 +59,7 @@ public class KMP {
             }
         }
 
-        Util.printArray(prefixLength);
+        Util.printArray(prefixLength, prefixLength.length);
         return prefixLength;
     }
 
