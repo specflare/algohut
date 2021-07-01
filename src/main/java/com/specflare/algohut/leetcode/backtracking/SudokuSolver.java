@@ -15,30 +15,6 @@ import java.util.Arrays;
 // https://leetcode.com/problems/sudoku-solver/
 public class SudokuSolver {
     private static final int SIZE = 9;
-    private static class Cell {
-        int row;
-        int col;
-
-        public Cell(int r, int c) {
-            row = r;
-            col = c;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (!(obj instanceof Cell)) {
-                return false;
-            }
-
-            Cell c = (Cell)obj;
-            return (this.row == c.row && this.col == c.col);
-        }
-
-        @Override
-        public String toString() {
-            return String.format("[%d,%d]", row, col);
-        }
-    }
 
     private void printBoard(char[][] board) {
         for (int i = 0; i < SIZE; i++) {
@@ -49,56 +25,32 @@ public class SudokuSolver {
         }
     }
 
+    private boolean solveSudoku_r(char[][] board) {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                if (board[i][j] != '.') {
+                    continue;
+                }
+
+                for (char c = '1'; c <= '9'; c++) {
+                    board[i][j] = c;
+
+                    if (isValidSoFar(board, i, j) && solveSudoku_r(board)) {
+                        return true;
+                    }
+
+                    board[i][j] = '.';
+                }
+
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public void solveSudoku(char[][] board) {
-        Cell firstEmptyCell = getNextEmptyCellAfterPos(board, 0,0);
-        char[][] currBoard = new char[board.length][board.length];
-        copyBoard(currBoard, board);
-        solve_r(currBoard, firstEmptyCell);
-        copyBoard(board, result);
-    }
-
-    private void copyBoard(char[][] dst, char[][] src) {
-        for (int i = 0; i < dst.length; i++) {
-            for (int j = 0; j < dst.length; j++) {
-                dst[i][j] = src[i][j];
-            }
-        }
-    }
-
-    boolean solved = false;
-    char[][] result = new char[SIZE][SIZE];
-    private void solve_r(char[][] board, Cell currEmptyCell) {
-        if (solved || currEmptyCell.equals(new Cell(-1, -1))) {
-            return;
-        }
-
-        for (char val = '1'; val <= '9'; val++) {
-            board[currEmptyCell.row][currEmptyCell.col] = val;
-            if (isValidSoFar(board, currEmptyCell.row, currEmptyCell.col)) {
-                Cell nextCell = getNextEmptyCellAfterPos(board, currEmptyCell.row, currEmptyCell.col);
-                if (nextCell.equals(new Cell(-1, -1))) {
-                    copyBoard(result, board);
-                    solved = true;
-                }
-
-                solve_r(board, nextCell);
-                if (!solved) {
-                    board[nextCell.row][nextCell.col] = '.';
-                }
-            }
-        }
-    }
-
-    private Cell getNextEmptyCellAfterPos(char[][] board, int row, int col) {
-        for (int i = row * SIZE + col; i < SIZE * SIZE; i++) {
-            int r = i / SIZE;
-            int c = i % SIZE;
-            if (board[r][c] == '.') {
-                return new Cell(r, c);
-            }
-        }
-
-        return new Cell(-1, -1);
+        solveSudoku_r(board);
     }
 
     private boolean isValidSoFar(char[][] board, int row, int col) {

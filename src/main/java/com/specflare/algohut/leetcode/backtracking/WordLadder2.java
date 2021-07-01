@@ -1,0 +1,62 @@
+package com.specflare.algohut.leetcode.backtracking;
+
+import java.util.*;
+
+// https://leetcode.com/problems/word-ladder-ii/
+public class WordLadder2 {
+    Map<String, List<String>> adjMatrix = new HashMap<>();
+    List<List<String>> result = new ArrayList<>();
+    public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+        Set<String> wordsSet = new HashSet<>(wordList);
+        wordsSet.add(beginWord);
+
+        for (String word1 : wordsSet) {
+            List<String> connections = new ArrayList<>();
+            for (String word2 : wordsSet) {
+                if (differByOneLetter(word1, word2)) {
+                    connections.add(word2);
+                }
+            }
+
+            adjMatrix.put(word1, connections);
+        }
+
+        Stack<String> sol = new Stack<>();
+        sol.add(beginWord);
+        solve_r(endWord, sol);
+
+        return result;
+    }
+
+    private void solve_r(String endWord, Stack<String> sol) {
+        if (sol.peek().equals(endWord)) {
+            // we copy the stack to the result;
+
+            for (int i = 0; i < sol.size(); i++) {
+                sol.add(sol.get(i));
+            }
+
+            result.add((List<String>)sol.clone());
+            return;
+        }
+    }
+
+    private boolean differByOneLetter(String s1, String s2) {
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+
+        int count = 0;
+        for (int i = 0; i < s1.length(); i++) {
+            if (s1.charAt(i) != s2.charAt(i)) {
+                count++;
+
+                if (count > 1) {
+                    return false;
+                }
+            }
+        }
+
+        return (1 == count);
+    }
+}
