@@ -9,7 +9,7 @@ import java.util.Map;
 // such that they add up to target.
 // https://leetcode.com/problems/two-sum/
 public class TwoSum {
-    // Two-pass hash-table solution
+    // Two-pass hash-table solution: returns indices
     public static int[] twoSum_v2(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
 
@@ -23,7 +23,7 @@ public class TwoSum {
                 return new int[] { i, map.get(complement) };
             }
         }
-        throw new IllegalArgumentException("No two sum solution");
+        return new int[]{-1, -1};
     }
 
     // Single-pass hash table
@@ -36,12 +36,13 @@ public class TwoSum {
             }
             map.put(nums[i], i);
         }
-        throw new IllegalArgumentException("No two sum solution");
+        return new int[]{-1, -1};
     }
 
     public static void main(String[] args) {
         Util.printArray(TwoSum.twoSum_v2(new int[]{2, 7, 11, 15}, 9), Integer.MAX_VALUE);
         Util.printArray(TwoSum.twoSum_v2(new int[]{3, 2, 4}, 9), Integer.MAX_VALUE);
         Util.printArray(TwoSum.twoSum_v2(new int[]{3, 3}, 9), Integer.MAX_VALUE);
+        Util.printArray(TwoSum.twoSum_v2(new int[]{1,3,4,6,7,8,9}, 11), Integer.MAX_VALUE);
     }
 }

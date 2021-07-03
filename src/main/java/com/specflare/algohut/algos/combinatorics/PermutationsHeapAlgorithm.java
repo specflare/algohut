@@ -1,7 +1,7 @@
 package com.specflare.algohut.algos.combinatorics;
 import java.util.Arrays;
 
-public class PermHeapAlgo {
+public class PermutationsHeapAlgorithm {
     // Heap's algorithm for permutations generation (Wikipedia)
     public static void genPermHeapRec(int[] arr, int n) {
         if (0 == n) {
