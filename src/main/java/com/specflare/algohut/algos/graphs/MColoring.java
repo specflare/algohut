@@ -2,11 +2,23 @@ package com.specflare.algohut.algos.graphs;
 
 import com.specflare.algohut.Util;
 
+import java.util.Arrays;
+
+/**
+ * If you want to print just the first solution:
+ *  - when the solution is encountered, return true
+ *  - just after the recursive call return true, if the function returns true => this unwinds the stack immediately.
+ */
+// Tags: backtracking, graphs
 public class MColoring {
     public static boolean generateColoring(Graph g, int numColors) {
         int[] stack = new int[g.getNumNodes()];
+
+        System.out.println("First solution: " + generateFirstSolutionOnly_r(g, stack, 0, numColors));
+
+        Arrays.fill(stack, 0);
+        System.out.println("\nAll solutions: ");
         generateAllSolutions_r(g, stack, 0, numColors);
-        // generateFirstSolutionOnly_r(g, stack, 0, numColors);
         return true;
     }
 
@@ -74,6 +86,6 @@ public class MColoring {
                 {1, 0, 1, 0}
         });
 
-        System.out.println(generateColoring(g, 3));
+        generateColoring(g, 3);
     }
 }

@@ -1,7 +1,5 @@
 package com.specflare.algohut.leetcode.lists;
 
-import org.w3c.dom.NodeList;
-
 public class ListNode {
     public int val;
     public ListNode next;

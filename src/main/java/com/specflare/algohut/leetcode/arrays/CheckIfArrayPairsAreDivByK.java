@@ -3,6 +3,13 @@ package com.specflare.algohut.leetcode.arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Given an array of integers arr of even length n and an integer k.
+ * We want to divide the array into exactly n / 2 pairs such that the sum of each pair is divisible by k.
+ * Return True If you can find a way to do that or False otherwise.
+ */
+
+// https://leetcode.com/problems/check-if-array-pairs-are-divisible-by-k/
 public class CheckIfArrayPairsAreDivByK {
     public boolean canArrange(int[] arr, int k) {
         Map<Integer, Integer> map = new HashMap<>();

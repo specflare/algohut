@@ -5,7 +5,7 @@ package com.specflare.algohut.leetcode.arrays;
  * You must implement an algorithm that runs in O(n) time and uses constant extra space.
  */
 
-// 41. First Missing Positive
+// 41. First Missing Positive (Hard)
 // https://leetcode.com/problems/first-missing-positive/
 public class FirstMissingPositive {
     private int segregate(int[] nums) {

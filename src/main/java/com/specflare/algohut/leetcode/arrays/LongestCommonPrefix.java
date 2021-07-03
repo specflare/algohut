@@ -5,6 +5,7 @@ package com.specflare.algohut.leetcode.arrays;
  * If there is no common prefix, return an empty string "".
  */
 
+// 14. Longest Common Prefix (Easy)
 // https://leetcode.com/problems/longest-common-prefix/
 public class LongestCommonPrefix {
     public String longestCommonPrefix(String[] strs) {

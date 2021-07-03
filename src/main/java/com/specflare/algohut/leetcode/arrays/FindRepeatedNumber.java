@@ -6,7 +6,7 @@ package com.specflare.algohut.leetcode.arrays;
  * You must solve the problem without modifying the array nums and uses only constant extra space.
  */
 
-// 287. Find the Duplicate Number
+// 287. Find the Duplicate Number (Medium)
 // https://leetcode.com/problems/find-the-duplicate-number/
 public class FindRepeatedNumber {
     // Uses Cycle detection mechanism, like in a linked list to detect if we have cycles or not

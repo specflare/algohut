@@ -8,7 +8,8 @@ import com.specflare.algohut.leetcode.dp.ContinuousSubArraySum;
  * Find two lines, which, together with the x-axis forms a container, such that the container contains the most water.
  */
 
-// 11. Container With Most Water: https://leetcode.com/problems/container-with-most-water/
+// 11. Container With Most Water: (Medium)
+// https://leetcode.com/problems/container-with-most-water/
 public class ContainerWithMostWater {
     public int maxArea(int[] height) {
         int left = 0, right = height.length - 1;
