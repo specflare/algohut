@@ -1,5 +1,10 @@
 package com.specflare.algohut.leetcode.trees;
 
+/**
+ * Given a binary tree, find the largest subtree which is a Binary Search Tree (BST),
+ * where largest means subtree with largest number of nodes in it.
+ */
+
 // https://www.programcreek.com/2014/07/leetcode-largest-bst-subtree-java/
 // https://leetcode.com/problems/largest-bst-subtree/
 public class LargestBSTSubtree {

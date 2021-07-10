@@ -12,9 +12,9 @@ public class Graph {
         }
     }
 
-    final int[][] adjMatrix;
-    Edge[] edges;
-    boolean isDirected;
+    public final int[][] adjMatrix;
+    public Edge[] edges;
+    public boolean isDirected;
 
     public int getNumEdges() {return edges.length;}
     public int getNumNodes() {return adjMatrix.length;}

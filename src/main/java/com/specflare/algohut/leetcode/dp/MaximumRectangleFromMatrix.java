@@ -8,8 +8,13 @@ import java.util.Stack;
 // https://leetcode.com/problems/maximal-rectangle/
 // https://www.geeksforgeeks.org/maximum-size-rectangle-binary-sub-matrix-1s/
 public class MaximumRectangleFromMatrix {
-    public static int maxRectangle(int A[][]) {
+    public int maxRectangle(int A[][]) {
+        return maxRectWithHist(A);
+    }
+
+    public int maxRectWithHist(int A[][]) {
         int result = maxHist(A[0]);
+
         // Update max area, considering each row as a histogram.
         for (int i = 1; i < A.length; i++) {
             for (int j = 0; j < A[i].length; j++) {
@@ -23,7 +28,6 @@ public class MaximumRectangleFromMatrix {
 
         return result;
     }
-
     // returns the maximum area of a rectangle under a histogram kept in row.
     private static int maxHist(int row[]) {
         Stack<Integer> result = new Stack<>();
