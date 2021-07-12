@@ -1,4 +1,4 @@
-package com.specflare.algohut.leetcode.arrays;
+package com.specflare.algohut.leetcode.arrays.kadane;
 
 // https://leetcode.com/problems/maximum-subarray/
 // 53. Maximum Subarray (Easy): Kadane's algorithm

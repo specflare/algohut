@@ -1,4 +1,4 @@
-package com.specflare.algohut.leetcode.arrays;
+package com.specflare.algohut.leetcode.arrays.sums;
 
 import java.util.*;
 

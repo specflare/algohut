@@ -1,4 +1,4 @@
-package com.specflare.algohut.leetcode.arrays;
+package com.specflare.algohut.leetcode.arrays.kadane;
 
 /**
  * Given an integer array nums, find a contiguous non-empty subarray within the array that has the
