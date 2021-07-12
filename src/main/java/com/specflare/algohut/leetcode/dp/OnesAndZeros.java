@@ -4,6 +4,7 @@ package com.specflare.algohut.leetcode.dp;
 // Return the size of the largest subset of strs such that there are at most m 0's and n 1's in the subset.
 // Sample input: strs = ["10","0","1"], m = 1, n = 1
 
+// 474. Ones and Zeroes (Medium)
 // https://leetcode.com/problems/ones-and-zeroes/
 public class OnesAndZeros {
     public static class Pair {
