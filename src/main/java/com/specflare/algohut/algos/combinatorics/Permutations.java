@@ -1,53 +1,109 @@
 package com.specflare.algohut.algos.combinatorics;
 
-import java.util.Stack;
+import com.specflare.algohut.Util;
+
+import java.util.Arrays;
 
 public class Permutations {
-    public static void bt_rec_permutations(int N, Stack<Integer> sol) { // WORKING
-        if (sol.size() == N) {
-            System.out.println(sol);
+    public static void permutations_backtracking(int[] stack, int K, int N) { // WORKING
+        if (K == N) {
+            Util.printArray(stack, K);
             return;
         }
 
-        for (int i = 0; i < N; i++) {
-            if (sol.contains(i))
-                continue;
-
-            sol.push(i);
-            bt_rec_permutations(N, sol);
-            sol.pop();
+        for (int i = 1; i <= N; i++) {
+            stack[K] = i;
+            if (isValid(stack, K)) {
+                permutations_backtracking(stack, K + 1, N);
+            }
+            stack[K] = 0;
         }
     }
 
-    public static void bt_rec_permutations2(int[] stack, int K, int N) { // WORKING
-        if (K == N) {
-            for (int i = 0; i < K; i++) {
-                System.out.print(stack[i] + " ");
+    private static boolean isValid(int[] stack, int K) {
+        for (int i = 0; i < K; i++) {
+            if (stack[i] == stack[K]) {
+                return false;
             }
-            System.out.println();
+        }
+
+        return true;
+    }
+
+    // Generating permutations recursively
+    // Let's introduce the idea of the state. It will consist of two things:
+    // the current permutation and the index of the currently processed element.
+    private static void permute(int[] arr, int k) {
+        if (k == arr.length) {
+            Util.printArray(arr, k);
             return;
         }
 
-        for (int i = 0; i < N; i++) {
-            // find first i so that i is different from all elems in the stack up to K-1.
-            boolean valid = true;
-            for (int j = 0; j < K; j++) {
-                if (stack[j] == i) {
-                    valid = false;
+        for (int i = k; i < arr.length; i++) {
+            swap(arr, i, k);
+            permute(arr, k + 1);
+            swap(arr, i, k);
+        }
+    }
+
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    // ---------------------------------------
+    // Heap algorithm
+    // Heap's algorithm for permutations generation (Wikipedia)
+    public static void genPermHeapRec(int[] arr, int n) {
+        if (0 == n) {
+            System.out.println(Arrays.toString(arr));
+        } else {
+            genPermHeapRec(arr, n - 1);
+            for (int i = 0; i < n - 1; ++i) {
+                if (0 == (i % 2)) {
+                    // swap a[i] with a[n-1]
+                    arr[i] ^= arr[ n - 1];
+                    arr[ n - 1] ^= arr[i];
+                    arr[i] ^= arr[ n - 1];
+                } else {
+                    // swap a[0] with a[n-1]
+                    arr[0] ^= arr[ n - 1];
+                    arr[ n - 1] ^= arr[0];
+                    arr[0] ^= arr[ n - 1];
                 }
+                genPermHeapRec(arr, n - 1);
             }
+        }
+    }
 
-            if (!valid) {
-                continue;
+    // Generating permutation using Heap Algorithm (GfG - easier to understand)
+    public static void heapPermutation(int[] arr, int N) {
+        if (N == 1) {
+            System.out.println(Arrays.toString(arr));
+        }
+
+        for (int i = 0; i < N; i++) {
+            heapPermutation(arr, N - 1);
+
+            int temp;
+            if (N % 2 == 1) {
+                temp = arr[0];
+                arr[0] = arr[N - 1];
+            } else {
+                temp = arr[i];
+                arr[i] = arr[N - 1];
             }
-
-            stack[K] = i;
-            bt_rec_permutations2(stack, K + 1, N);
+            arr[N - 1] = temp;
         }
     }
 
     public static void main(String[] args) {
-        // genPermLiviu_rec(5, new Stack<>());
-        bt_rec_permutations2(new int[3], 0, 3);
+        permutations_backtracking(new int[3], 0, 3);
+
+        System.out.println("Permute recursively: ");
+        // permute recursively
+        int[] arr = new int[]{1, 2, 3};
+        permute(arr, 0);
     }
 }

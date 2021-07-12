@@ -1,4 +1,4 @@
-package com.specflare.algohut.algos.dynprog;
+package com.specflare.algohut.algos.dp;
 
 // Reference: https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
 

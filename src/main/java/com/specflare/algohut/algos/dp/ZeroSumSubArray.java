@@ -1,4 +1,4 @@
-package com.specflare.algohut.algos.dynprog;
+package com.specflare.algohut.algos.dp;
 
 // Given an array of integer numbers, tell if there exists a sub-array whose sum is 0.
 public class ZeroSumSubArray {

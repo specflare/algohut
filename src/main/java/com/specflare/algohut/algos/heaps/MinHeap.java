@@ -1,4 +1,4 @@
-package com.specflare.algohut.heaps;
+package com.specflare.algohut.algos.heaps;
 
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;

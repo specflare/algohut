@@ -1,4 +1,4 @@
-package com.specflare.algohut.algos.dynprog;
+package com.specflare.algohut.algos.dp;
 
 /**
  * Steps to solve a DynProg problem

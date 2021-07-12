@@ -1,4 +1,4 @@
-package com.specflare.algohut.algos.dynprog;
+package com.specflare.algohut.algos.dp;
 
 // Given a list of integer numbers, find if it can be divided into 2 subsets with equal sum.
 

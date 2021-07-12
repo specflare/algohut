@@ -1,4 +1,4 @@
-package com.specflare.algohut.algos.dynprog;
+package com.specflare.algohut.algos.dp;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

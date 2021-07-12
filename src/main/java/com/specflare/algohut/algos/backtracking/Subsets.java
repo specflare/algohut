@@ -19,6 +19,6 @@ public class Subsets {
     }
 
     public static void main(String[] args) {
-        genSubsets_rec(new Stack<Integer>(), 3);
+        genSubsets_rec(new Stack<>(), 3);
     }
 }
