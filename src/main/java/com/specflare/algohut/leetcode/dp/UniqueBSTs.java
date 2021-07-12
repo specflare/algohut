@@ -6,9 +6,13 @@ package com.specflare.algohut.leetcode.dp;
  *
  * Given n=5, we iterate for i = 1 to 5, the left subtree will contain nodes 1..i-1, right subtree witll contain nodes
  * i+1..n. so the total number of combinations is numLeftSubtrees * numRightSubtrees.
- * This is also the n-th Catalan number.
+ *
+ * Solution: This is also the n-th Catalan number.
+ *  - Catalan(n) = Comb(2n, n) - Comb(2n, n + 1)
  */
 
+// https://leetcode.com/problems/unique-binary-search-trees/
+// 96. Unique Binary Search Trees (Medium)
 public class UniqueBSTs {
     public int numTrees(int n) {
         int[] dp = new int[n + 1];
