@@ -1,4 +1,4 @@
-package com.specflare.algohut.leetcode.math;
+package com.specflare.algohut.leetcode.arrays.median;
 
 import java.util.Collections;
 import java.util.PriorityQueue;
