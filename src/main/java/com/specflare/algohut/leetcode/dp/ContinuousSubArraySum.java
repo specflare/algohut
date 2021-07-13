@@ -14,7 +14,7 @@ import java.util.Map;
 public class ContinuousSubArraySum {
 
     // Brute-force solution, with O(N^2) extra space - NOT acceptable!
-    public static boolean checkSubarraySum_bf(int[] nums, int k) {
+    public static boolean checkSubarraySum_bruteForce(int[] nums, int k) {
         if (nums.length < 2) {
             return false;
         }

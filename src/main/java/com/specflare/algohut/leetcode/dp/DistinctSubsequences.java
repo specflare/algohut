@@ -12,7 +12,7 @@ import com.specflare.algohut.Util;
  * It is guaranteed the answer fits on a 32-bit signed integer.
  */
 
-// 115. Distinct Subsequences
+// 115. Distinct Subsequences (Hard)
 // https://leetcode.com/problems/distinct-subsequences/
 public class DistinctSubsequences {
     public int numDistinct(String s, String t) {

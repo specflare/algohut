@@ -4,7 +4,8 @@ package com.specflare.algohut.leetcode.arrays;
  * Given n non-negative integers representing an elevation map where the width of each bar is 1,
  * compute how much water it can trap after raining.
  */
-// 42. Trapping Rain Water:
+
+// 42. Trapping Rain Water: (Hard) - NOT COMPLETE - NOT WORKING YET !!!
 // https://leetcode.com/problems/trapping-rain-water/
 public class TrappingRainWater {
     public int trap(int[] height) {

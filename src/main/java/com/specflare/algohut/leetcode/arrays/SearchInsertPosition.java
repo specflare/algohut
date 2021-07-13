@@ -6,7 +6,7 @@ package com.specflare.algohut.leetcode.arrays;
  * You must write an algorithm with O(log n) runtime complexity.
  */
 
-// 35. Search Insert Position
+// 35. Search Insert Position (Easy)
 // https://leetcode.com/problems/search-insert-position/
 public class SearchInsertPosition {
     public int searchInsert(int[] nums, int target) {

@@ -8,6 +8,8 @@ package com.specflare.algohut.leetcode.arrays;
 // 41. First Missing Positive (Hard)
 // https://leetcode.com/problems/first-missing-positive/
 public class FirstMissingPositive {
+
+    // partition vector in 2: first the negative numbers, then the positive numbers.
     private int segregate(int[] nums) {
         int j = 0;
         for (int i = 0; i < nums.length; i++) {

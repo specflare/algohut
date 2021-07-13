@@ -4,6 +4,12 @@ package com.specflare.algohut.leetcode.arrays;
  * Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
  * There is only one repeated number in nums, return this repeated number.
  * You must solve the problem without modifying the array nums and uses only constant extra space.
+ *
+ * Solution: use fast/slow pointers to detect the loop (the duplicate number).
+ * Algorithm name: Floyd's Tortoise & Hare (Cycle detection)
+ *
+ * Attention: we need to return the point where the loop begins,
+ *      not the point where the fast/slow pointers meet for the first time !!!
  */
 
 // 287. Find the Duplicate Number (Medium)

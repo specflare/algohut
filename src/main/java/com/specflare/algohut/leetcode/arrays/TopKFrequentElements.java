@@ -9,7 +9,7 @@ import java.util.*;
  * You may return the answer in any order.
  */
 
-// 347. Top K Frequent Elements
+// 347. Top K Frequent Elements (Medium)
 // https://leetcode.com/problems/top-k-frequent-elements/
 public class TopKFrequentElements {
     public int[] topKFrequent(int[] nums, int k) {
