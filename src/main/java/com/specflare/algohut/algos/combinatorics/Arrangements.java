@@ -11,8 +11,18 @@ public class Arrangements {
 
         for (int i = 0; i < N; i++) {
             data[K] = i;
-            generate_r(data, N, P, K + 1);
+            if (isValid(data, K)) {
+                generate_r(data, N, P, K + 1);
+            }
         }
+    }
+
+    public static boolean isValid(int[] data, int K) {
+        for (int i = 0; i < K; i++) {
+            if (data[K] == data[i])
+                return false;
+        }
+        return true;
     }
 
     public static void generate(int N, int P) {

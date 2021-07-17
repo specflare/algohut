@@ -4,7 +4,7 @@ package com.specflare.algohut.algos.dp;
  * Steps to solve a DynProg problem
  *  1. Find the recursive relationship
  *  2. Draw the call tree from the recursive function
- *  3. Notice the Overlapping subproblems (i.e. recursive calls with the same data that can be cached)
+ *  3. Notice the Overlapping sub-problems (i.e. recursive calls with the same data that can be cached)
  *  4. Cache the pre-computed sub-problems, and implement the algorithm iteratively.
  */
 
@@ -23,7 +23,7 @@ public class LCS {
                 lcs_rec(X, Y, m - 1, n));
     }
 
-    // iterative solution, with memoization
+    // iterative solution, with tabulation
     static int lcs_memoization( char[] X, char[] Y, int m, int n ) {
         int[][] L = new int[m + 1][n + 1];
 

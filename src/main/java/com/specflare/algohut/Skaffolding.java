@@ -1,8 +1,6 @@
 package com.specflare.algohut;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Skaffolding {
 
@@ -16,17 +14,28 @@ public class Skaffolding {
             System.out.println(entry);
         }
 
+        System.out.println("Keys: ");
         for (Integer k : m.keySet()) {
             System.out.println(k);
         }
 
-        for (Integer v : m.keySet()) {
+        System.out.println("Values: ");
+        for (Integer v : m.values()) {
             System.out.println(v);
         }
 
         System.out.println(m.get(5));
 
-        // ------------------------------------------
-        Map<Integer, List<Integer>> ml = new HashMap<>();
+        usingLists();
+    }
+
+    private static void usingLists() {
+        List<Integer> list = new ArrayList<>();
+        list.add(4);
+        list.add(1);
+        list.add(2);
+        Collections.sort(list, (a, b) -> b - a);
+        System.out.println(list);
+
     }
 }

@@ -44,19 +44,24 @@ public class BinaryTreeAlgos {
             return null;
         }
 
+        // we search for either key in the whole tree, and return the either node.
         if (localRoot.data.equals(key1) || localRoot.data.equals(key2)) {
             return localRoot;
         }
 
+        // bottom-up traversal.
         BinaryTreeNode<T> left = findLCA(localRoot.left, key1, key2);
         BinaryTreeNode<T> right = findLCA(localRoot.right, key1, key2);
 
+        // if this node contains one key on the left, and the other on the right, return it
         if (left != null && right != null) {
             return localRoot;
         }
 
+        // both keys on the left
         if (left != null) return left;
 
+        // both keys on the right.
         return right;
     }
 

@@ -1,6 +1,7 @@
 package com.specflare.algohut.algos.dp;
 
 // Given an array of integer numbers, tell if there exists a sub-array whose sum is 0.
+// WRONG SOLUTION: the subarray must be contiguous (it is not a sub-sequence).
 public class ZeroSumSubArray {
     public static boolean zeroSumSubArray(int[] arr) {
         if (0 == arr.length) {

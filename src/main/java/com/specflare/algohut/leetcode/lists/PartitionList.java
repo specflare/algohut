@@ -41,16 +41,40 @@ public class PartitionList {
         return start1;
     }
 
+    // Lemuto partitioning: does not preserve relative ordering of elements.
+    public ListNode partitionNoNodeSwap(ListNode head, int x) {
+        ListNode slow = head;
+
+        for (ListNode curr = head; curr != null; curr = curr.next) {
+            System.out.println("List: " + head.toString());
+            System.out.println("slow: " + slow.toString());
+            if (curr.val < x) {
+                // swap slow and curr's values
+                int temp = slow.val;
+                slow.val = curr.val;
+                curr.val = temp;
+
+                slow = slow.next;
+            }
+        }
+
+        return head;
+    }
+
     public static void main(String[] args) {
         PartitionList pl = new PartitionList();
-        System.out.println(pl.partition(ListNode.fromArray(new int[] {1,4,3,2,5,2}), 3).toString());
-        System.out.println(pl.partition(ListNode.fromArray(new int[] {1,3,2}), 2).toString());
-        System.out.println(pl.partition(ListNode.fromArray(new int[] {2,1}), 2).toString());
-        System.out.println(pl.partition(ListNode.fromArray(new int[] {2}), 2).toString());
+//        System.out.println(pl.partition(ListNode.fromArray(new int[] {1,4,3,2,5,2}), 3).toString());
+        System.out.println(pl.partitionNoNodeSwap(ListNode.fromArray(new int[] {1,4,3,2,5,2}), 3).toString());
 
-        ListNode result = pl.partition(ListNode.fromArray(new int[] {}), 2);
-        if (null != result) {
-            System.out.println(result.toString());
-        }
+//        System.out.println(pl.partition(ListNode.fromArray(new int[] {1,3,2}), 2).toString());
+//        System.out.println(pl.partitionNoNodeSwap(ListNode.fromArray(new int[] {1,3,2}), 2).toString());
+//
+//        System.out.println(pl.partition(ListNode.fromArray(new int[] {2,1}), 2).toString());
+//        System.out.println(pl.partition(ListNode.fromArray(new int[] {2}), 2).toString());
+//
+//        ListNode result = pl.partition(ListNode.fromArray(new int[] {}), 2);
+//        if (null != result) {
+//            System.out.println(result.toString());
+//        }
     }
 }
