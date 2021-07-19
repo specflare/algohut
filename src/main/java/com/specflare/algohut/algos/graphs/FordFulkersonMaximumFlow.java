@@ -2,6 +2,9 @@ package com.specflare.algohut.algos.graphs;
 
 import java.util.LinkedList;
 
+// Repeat BFS until there is no more path from start to end.
+// For each path found by BFS, generate a new residual graph with the costs diminished by the previous flow.
+// BFS is used because the path from start to end does not necessarily need to be the shortest one.
 public class FordFulkersonMaximumFlow {
     public int computeMaxFlow(Graph g, int startNode, int endNode) {
         Graph residualGraph = new Graph(g.adjMatrix);
@@ -18,7 +21,6 @@ public class FordFulkersonMaximumFlow {
             for (int node = endNode; node != startNode; node = parent[node]) {
                 int other = parent[node];
                 residualGraph.adjMatrix[other][node] -= pathFlow;
-                // residualGraph.adjMatrix[node][other] += pathFlow;
             }
 
             maxFlow += pathFlow;

@@ -3,6 +3,8 @@ package com.specflare.algohut.leetcode.arrays;
 import com.specflare.algohut.Util;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  You are given an integer array prices where prices[i] is the price of a given stock on the ith day, and an integer k.
@@ -14,11 +16,7 @@ import java.util.Arrays;
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
 public class BuyAndSellStockKTransactions {
     public int maxProfit(int k, int[] prices) {
-        int[][] memo = new int[k + 1][prices.length + 1];
-        for (int[] row : memo) {
-            Arrays.fill(row, -1);
-        }
-
+        Map<Integer, Integer> memo = new HashMap<>();
         int result = buyAndSell_recursive(prices, 0, -1, k, memo);
         // Util.printMatrix(memo);
         return result;
@@ -32,15 +30,16 @@ public class BuyAndSellStockKTransactions {
      */
 
     // Recursive solution with memoization (Top-down approach)
-    private int buyAndSell_recursive(int[] prices, int i, int lastBuyIndex, int k, int[][] memo) {
+    private int buyAndSell_recursive(int[] prices, int i, int lastBuyIndex, int k, Map<Integer, Integer> memo) {
+        int key = (i << 20) | (lastBuyIndex << 10) | k;
         if (k < 0 || i == prices.length) {
-            memo[k][i] = 0;
-            return memo[k][i];
+            memo.putIfAbsent(key, 0);
+            return 0;
         }
 
-//        if (memo[k][i] != -1) {
-//            return memo[k][i];
-//        }
+        if (memo.containsKey(key)) {
+            return memo.get(key);
+        }
 
         // do nothing, just move on.
         int profitDoNothing = buyAndSell_recursive(prices, i + 1, lastBuyIndex, k, memo);
@@ -61,8 +60,8 @@ public class BuyAndSellStockKTransactions {
         }
 
         int maxProfit = Math.max(profitDoNothing, Math.max(profitBuy, profitSell));
-        memo[k][i] = maxProfit;
-        return memo[k][i];
+        memo.putIfAbsent(key, maxProfit);
+        return maxProfit;
     }
 
     public static void main(String[] args) {

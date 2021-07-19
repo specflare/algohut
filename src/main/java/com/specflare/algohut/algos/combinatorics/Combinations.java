@@ -21,6 +21,10 @@ public class Combinations {
         generate_r(data, N, P, 0);
     }
 
+    private static void combinations_rec(int N, int K) {
+
+    }
+
     public static void main(String[] args) {
         int N = 4;
         int P = 2;

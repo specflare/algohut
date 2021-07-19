@@ -8,7 +8,7 @@ import java.util.List;
  * which has exactly n nodes of unique values from 1 to n. Return the answer in any order.
  */
 
-// 95. Unique Binary Search Trees II
+// 95. Unique Binary Search Trees II (Medium)
 // https://leetcode.com/problems/unique-binary-search-trees-ii/
 public class UniqueBinarySearchTrees2 {
     public List<TreeNode> generateTrees(int n) {
@@ -32,9 +32,7 @@ public class UniqueBinarySearchTrees2 {
 
             for (TreeNode l : left) {
                 for (TreeNode r : right) {
-                    TreeNode root = new TreeNode(i);
-                    root.left = l;
-                    root.right = r;
+                    TreeNode root = new TreeNode(i, l, r);
                     allTrees.add(root);
                 }
             }

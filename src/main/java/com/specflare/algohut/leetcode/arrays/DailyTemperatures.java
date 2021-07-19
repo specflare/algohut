@@ -15,7 +15,7 @@ import java.util.Stack;
 // 739. Daily Temperatures
 // https://leetcode.com/problems/daily-temperatures/
 public class DailyTemperatures {
-    class Elem {
+    static class Elem {
         public int temp;
         public int index;
 
@@ -40,11 +40,8 @@ public class DailyTemperatures {
                         tempsStack.pop();
                     } else break;
                 }
-
-                tempsStack.push(new Elem(temperatures[i], i));
-            } else {
-                tempsStack.push(new Elem(temperatures[i], i));
             }
+            tempsStack.push(new Elem(temperatures[i], i));
         }
 
         return result;

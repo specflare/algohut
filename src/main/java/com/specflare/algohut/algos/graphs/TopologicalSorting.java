@@ -9,9 +9,8 @@ import java.util.Queue;
  * every directed edge uv, vertex u comes before v in the ordering.
  * Topological Sorting for a graph is not possible if the graph is not a DAG.
  *
- *
  * Algorithm:
- *  1. We compute the in-degree of all nodes and add them to a queue.
+ *  1. We compute the in-degree of all nodes and add them to a queue if the in-degree is zero.
  *  2. We take the first elem from the queue, and check its neighbours and decrease their in-degree by 1.
  *  3. If any of its neighbours reach an in-degree of 0, we add it to the queue as well.
  *  4. Repeat from step 1 until queue is empty.
@@ -33,7 +32,7 @@ public class TopologicalSorting {
             }
         }
 
-        // create a queue with all nodes with indegree == 0.
+        // create a queue with all nodes with in-degree == 0.
         Queue<Integer> q = new LinkedList<>();
         for (int i = 0 ; i < N; i++) {
             if (indegree[i] == 0) {
@@ -46,7 +45,7 @@ public class TopologicalSorting {
             int u = q.poll();
             result.add(u);
 
-            // get all neighbours of u, and decrease their indegree by 1.
+            // get all neighbours of u, and decrease their in-degree by 1.
             for (int i = 0; i < N; i++) {
                 if (g.adjMatrix[u][i] != 0) {
                     if (--indegree[i] == 0) {

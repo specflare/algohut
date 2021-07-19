@@ -68,10 +68,7 @@ public class TopKFrequentElements {
     }
 
     public void quickselect(int[] arr, Map<Integer, Integer> freqs, int left, int right, int k_smallest) {
-        /*
-        Sort a list within left..right till kth less frequent element
-        takes its place.
-        */
+        // sort a list within left..right till kth less frequent element takes its place
 
         // base case: the list contains only one element
         if (left == right)

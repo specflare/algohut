@@ -9,10 +9,11 @@ import java.util.Map;
  * Return True If you can find a way to do that or False otherwise.
  */
 
+// 1497. Check If Array Pairs Are Divisible by k (Medium)
 // https://leetcode.com/problems/check-if-array-pairs-are-divisible-by-k/
 public class CheckIfArrayPairsAreDivByK {
     public boolean canArrange(int[] arr, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>(); // key = number, val = number of occurrences.
         for (int value : arr) {
             int num = ((value % k) + k) % k;
             int compl = (k - num) % k;

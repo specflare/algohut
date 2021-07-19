@@ -26,6 +26,8 @@ public class UniqueBSTs {
             {
                 int left = j - 1; // from 0 to i-1
                 int right = i - j;
+                // we look for other trees whose order add to i-1. Because i-1 +1 is i.
+                // left + right = (i - 1)
                 sum += dp[left] * dp[right];
             }
 

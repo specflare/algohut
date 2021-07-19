@@ -38,11 +38,27 @@ public class FindRepeatedNumber {
         return slow; // or fast, since they are equal.
     }
 
+    public int findDup2(int[] nums) {
+        int N = nums.length - 1;
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+        }
+        return sum - N * (N + 1) / 2;
+    }
+
     public static void main(String[] args) {
         FindRepeatedNumber frn = new FindRepeatedNumber();
         System.out.println(frn.findDuplicate(new int[]{1,3,4,2,2}));
+        System.out.println(frn.findDup2(new int[]{1,3,4,2,2}));
+
         System.out.println(frn.findDuplicate(new int[]{3,1,3,4,2}));
+        System.out.println(frn.findDup2(new int[]{3,1,3,4,2}));
+
         System.out.println(frn.findDuplicate(new int[]{1,1}));
+        System.out.println(frn.findDup2(new int[]{1,1}));
+
         System.out.println(frn.findDuplicate(new int[]{1,1,2}));
+        System.out.println(frn.findDup2(new int[]{1,1,2}));
     }
 }

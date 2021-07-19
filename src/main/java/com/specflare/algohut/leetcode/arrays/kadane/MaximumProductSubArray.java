@@ -1,13 +1,13 @@
 package com.specflare.algohut.leetcode.arrays.kadane;
 
 /**
- * Given an integer array nums, find a contiguous non-empty subarray within the array that has the
+ * Given an integer array nums, find a contiguous non-empty sub-array within the array that has the
  * largest product, and return the product.
  * It is guaranteed that the answer will fit in a 32-bit integer.
- * A subarray is a contiguous subsequence of the array.
+ * A sub-array is a contiguous subsequence of the array.
  */
 
-// 152. Maximum Product Subarray
+// 152. Maximum Product Sub-array (Medium)
 // https://leetcode.com/problems/maximum-product-subarray/
 public class MaximumProductSubArray {
     public int maxProduct(int[] nums) {

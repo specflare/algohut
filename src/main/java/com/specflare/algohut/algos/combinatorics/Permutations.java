@@ -30,28 +30,6 @@ public class Permutations {
         return true;
     }
 
-    // Generating permutations recursively
-    // Let's introduce the idea of the state. It will consist of two things:
-    // the current permutation and the index of the currently processed element.
-    private static void permute(int[] arr, int k) {
-        if (k == arr.length) {
-            Util.printArray(arr, k);
-            return;
-        }
-
-        for (int i = k; i < arr.length; i++) {
-            swap(arr, i, k);
-            permute(arr, k + 1);
-            swap(arr, i, k);
-        }
-    }
-
-    private static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-
     // ---------------------------------------
     // Heap algorithm
     // Heap's algorithm for permutations generation (Wikipedia)
@@ -98,12 +76,34 @@ public class Permutations {
         }
     }
 
+    // Generating permutations recursively
+    // Let's introduce the idea of the state. It will consist of two things:
+    // the current permutation and the index of the currently processed element.
+    private static void permute(int[] arr, int k) {
+        if (k == arr.length) {
+            Util.printArray(arr, k);
+            return;
+        }
+
+        for (int i = k; i < arr.length; i++) {
+            swap(arr, i, k);
+            permute(arr, k + 1);
+            swap(arr, i, k);
+        }
+    }
+
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
     public static void main(String[] args) {
         permutations_backtracking(new int[3], 0, 3);
 
         System.out.println("Permute recursively: ");
         // permute recursively
         int[] arr = new int[]{1, 2, 3};
-        permute(arr, 0);
+        permute(arr, 1);
     }
 }

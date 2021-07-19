@@ -7,7 +7,7 @@ package com.specflare.algohut.leetcode.trees;
  * node never differs by more than one.
  */
 
-// 108. Convert Sorted Array to Binary Search Tree
+// 108. Convert Sorted Array to Binary Search Tree (Easy)
 // https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
 public class ConvertSortedArrayToBST {
     public TreeNode sortedArrayToBST(int[] nums) {

@@ -8,7 +8,7 @@ package com.specflare.algohut.leetcode.arrays;
  * Solution: use Kadane's  algorithm to find the maximum sum and the minimum sum
  * then return max of their abs values.
  */
-// 1749. Maximum Absolute Sum of Any Subarray
+// 1749. Maximum Absolute Sum of Any Sub-array (Medium)
 // https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/
 public class MaxAbsSumSubArray {
     public int maxAbsoluteSum(int[] nums) {

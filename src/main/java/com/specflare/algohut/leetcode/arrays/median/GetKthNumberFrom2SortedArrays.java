@@ -14,7 +14,6 @@ public class GetKthNumberFrom2SortedArrays {
      * Space complexity: O(1)
      */
     private static int getKth(int[] arr1, int[] arr2, int i, int j, int k) {
-        System.out.println(String.format("i = %d, j = %d, k = %d", i, j, k));
         if (i == arr1.length) {
             return arr2[j + k];
         }
@@ -27,16 +26,20 @@ public class GetKthNumberFrom2SortedArrays {
             return Math.min(arr1[i], arr2[j]);
         }
 
-        int mid1 = Math.min((arr1.length) - i, (k + 1) / 2);
-        int mid2 = Math.min((arr2.length) - j, (k + 1) / 2);
+        int mid1 = Math.min(arr1.length - i, (k + 1) / 2);
+        int mid2 = Math.min(arr2.length - j, (k + 1) / 2);
 
         int a = arr1[i + mid1 - 1];
         int b = arr2[j + mid2 - 1];
 
+        System.out.println(String.format("i = %d, j = %d, k = %d, mid1=%d, mid2=%d, a=%d, b=%d", i, j, k, mid1, mid2, a, b));
+
         if (a < b) {
+            // discard left of 'a'
             return getKth(arr1, arr2, i + mid1, j, k - mid1);
         }
 
+        // discard left of 'b'
         return getKth(arr1, arr2, i, j + mid2, k - mid2);
     }
 

@@ -1,11 +1,13 @@
 package com.specflare.algohut.algos.graphs;
 
 /**
- * Prim's algoritm is a greedy algorithm that finds a minimum spanning tree for a weighted undirected graph.
+ * Prim's algorithm is a greedy algorithm that finds a minimum spanning tree for a weighted undirected graph.
  * It finds a subset of the edges that forms a tree that includes every vertex, where the total weight of
  * all the edges in the tree is minimized
  *
  * A spanning tree is a sub-graph that is connected, and has no cycles.
+ *
+ * We connect one node at a time. and we always pick the node with the lowest cost to connect to the existing MST.
  */
 
 // https://en.wikipedia.org/wiki/Prim%27s_algorithm
@@ -40,7 +42,8 @@ public class PrimMinSpanningTree {
             visited[minNode] = true;
 
             for (int node = 0; node < g.getNumNodes(); node++) {
-                if (!visited[node] && g.adjMatrix[minNode][node] != 0
+                if (!visited[node]
+                        && g.adjMatrix[minNode][node] != 0
                         && g.adjMatrix[minNode][node] < cost[node]) {
                     parent[node] = minNode;
                     cost[node] = g.adjMatrix[minNode][node];

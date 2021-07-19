@@ -12,18 +12,20 @@ import java.util.Map;
  *
  * Return the minimum number of moves that you need to determine with certainty what the value of f is.
  */
+
+// 887. Super Egg Drop (Very Hard)
 // https://leetcode.com/problems/super-egg-drop/solution/
 public class SuperEggDrop {
-    public static int superEggDrop(int k, int n) {
-        if (0 == k || 0 == n) {
+    public static int superEggDrop(int numEggs, int numFloors) {
+        if (0 == numEggs || 0 == numFloors) {
             return 0;
         }
 
-        if (1 == k || 1 == n) {
-            return n;
+        if (1 == numEggs || 1 == numFloors) {
+            return numFloors;
         }
 
-        return superEggDrop_DP(k, n);
+        return superEggDrop_DP(numEggs, numFloors);
     }
 
     public static int superEggDrop_DP(int eggs, int floors) {
@@ -45,7 +47,7 @@ public class SuperEggDrop {
                 for (int h = 1; h <= j; h++) {
                     minVal = Math.min(minVal, 1 + Math.max(
                             dp[i - 1][h - 1], // egg breaks, so eggs-1, floors -1
-                            dp[i][j - h]        // egg does not break, so we
+                            dp[i][j - h]        // egg does not break,
                     ));
                 }
 
@@ -63,12 +65,12 @@ public class SuperEggDrop {
 
         int minVal = Integer.MAX_VALUE;
 
-        for (int h = 1; h <= numFloors; h++) {
+        for (int floor = 1; floor <= numFloors; floor++) {
             // we pick the best worst case
             // Case 1: egg breaks => we count 1 move and rerun for (eggs-1, floors-1)
             // Case 2: egg does not break => we count 1 move and rerun for (eggs, remaining floors = numFloors-currFloor)
-            int numStepsEggBreaks = superEggDrop_recursive(numEggs - 1, h - 1);
-            int numStepsEggDoesntBreak = superEggDrop_recursive(numEggs, numFloors - h);
+            int numStepsEggBreaks = superEggDrop_recursive(numEggs - 1, floor - 1);
+            int numStepsEggDoesntBreak = superEggDrop_recursive(numEggs, numFloors - floor);
             minVal = Math.min(minVal, 1 + Math.max(numStepsEggBreaks, numStepsEggDoesntBreak));
         }
 

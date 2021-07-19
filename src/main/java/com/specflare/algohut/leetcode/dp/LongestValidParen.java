@@ -3,6 +3,8 @@ package com.specflare.algohut.leetcode.dp;
 /**
  * Given a string containing just the characters '(' and ')',
  * find the length of the longest valid (well-formed) parentheses substring.
+ *
+ * Solution: dp[i] contains the length of the paren pair ending at i.
  */
 
 // 32. Longest Valid Parentheses (Hard)

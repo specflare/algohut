@@ -10,7 +10,7 @@ import java.util.Set;
  *
  * Dijkstra works on the Adjacency Matrix.
  * Overall idea: we always try to expand the node with the lowest cost.
- * Once expanded, we exapnd its neighbours in the same manner.
+ * Once expanded, we expand its neighbours in the same manner.
  */
 
 public class DijkstraShortestPaths {

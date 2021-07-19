@@ -36,6 +36,16 @@ public class Skaffolding {
         list.add(2);
         Collections.sort(list, (a, b) -> b - a);
         System.out.println(list);
+    }
 
+    private static void usingStrings() {
+
+    }
+
+    private static void usingPQs() {
+//        PriorityQueue<Integer> upperHalf, lowerHalf, freqHeap;
+//        upperHalf = new PriorityQueue<>(); // MinHeap
+//        lowerHalf = new PriorityQueue<>(Collections.reverseOrder()); // MaxHeap
+//        freqHeap = new PriorityQueue<>((a, b) -> freq.get(a) - freq.get(b));
     }
 }

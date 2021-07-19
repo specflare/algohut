@@ -6,7 +6,7 @@ import java.util.*;
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
  */
 
-// 22. Generate Parentheses
+// 22. Generate Parentheses (Medium)
 // https://leetcode.com/problems/generate-parentheses/
 public class GenerateParentheses {
     public List<String> generateParenthesis(int n) {

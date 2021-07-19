@@ -1,8 +1,12 @@
 package com.specflare.algohut.leetcode.arrays;
 
+import com.specflare.algohut.Util;
+
 /**
  * Given an unsorted integer array nums, find the smallest missing positive integer.
  * You must implement an algorithm that runs in O(n) time and uses constant extra space.
+ *
+ * Solution: for each number x, make arr[x] negative. then return the first positive elem.
  */
 
 // 41. First Missing Positive (Hard)
@@ -28,6 +32,7 @@ public class FirstMissingPositive {
 
     public int firstMissingPositive(int[] nums) {
         int positiveStart = segregate(nums);
+        Util.printArray(nums, nums.length);
         for (int i = positiveStart; i < nums.length; i++) {
             int x = Math.abs(nums[i]) - 1;
             if (x < nums.length && nums[x] > 0) {

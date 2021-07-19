@@ -4,7 +4,12 @@ package com.specflare.algohut.leetcode.lists;
  * Given the head of a linked list and a value x, partition it such that all nodes less than x come before
  * nodes greater than or equal to x.
  * You should preserve the original relative order of the nodes in each of the two partitions.
+ *
+ * Solution: you need to reconstruct the 2 lists and link them at the end.
+ *      Lemuto partition does not work because it changes the relative order of the texts.
  */
+
+// 86. Partition List (Medium)
 // https://leetcode.com/problems/partition-list/
 public class PartitionList {
     public ListNode partition(ListNode head, int x) {

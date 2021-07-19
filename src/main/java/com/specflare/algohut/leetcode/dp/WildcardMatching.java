@@ -9,6 +9,7 @@ package com.specflare.algohut.leetcode.dp;
  * The matching should cover the entire input string (not partial).
  */
 
+// 44. Wildcard Matching (Hard)
 // https://leetcode.com/problems/wildcard-matching/
 public class WildcardMatching {
     public static boolean matches(String S, String P, int i, int j) {
