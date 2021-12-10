@@ -1,9 +1,8 @@
 package com.specflare.algohut.leetcode.trees;
 
 // https://leetcode.com/problems/validate-binary-search-tree/
+// 98. Validate Binary Search Tree (Medium)
 public class ValidateBST {
-
-
     // leftmost ancestor is minimum
     // rightmost ancestor is maximum
     public boolean isValidBST(TreeNode node) {
