@@ -2,6 +2,8 @@ package com.specflare.algohut.leetcode.arrays.median;
 
 import com.specflare.algohut.Util;
 
+// https://leetcode.com/problems/median-of-two-sorted-arrays/
+// 4. Median of Two Sorted Arrays (Hard)
 public class MedianOf2SortedArraysBinarySearch {
     public double findMedianSortedArrays(int[] A, int[] B) {
         if (A.length > B.length) {
@@ -15,12 +17,12 @@ public class MedianOf2SortedArraysBinarySearch {
         int rightA = sizeA;
         System.out.print("A = "); Util.printArray(A, A.length);
         System.out.print("B = "); Util.printArray(B, B.length);
-        System.out.println(String.format("sizeA = %d, sizeB = %d", sizeA, sizeB));
+        System.out.printf("sizeA = %d, sizeB = %d%n", sizeA, sizeB);
         while (leftA <= rightA) {
             // Partitions of both the array. For odd number of elems, the median will be on the left, hence the +1.
             int midA = (leftA + rightA) / 2;
             int midB = (sizeA + sizeB + 1) / 2 - midA; // This equation is the key to this algorithm !!!
-            System.out.println(String.format("leftA = %d, midA = %d, rightA = %d, midB = %d", leftA, midA, rightA, midB));
+            System.out.printf("leftA = %d, midA = %d, rightA = %d, midB = %d%n", leftA, midA, rightA, midB);
 
             // If there are no elements left on the left side after partition
             int maxLeftA = midA == 0 ? Integer.MIN_VALUE : A[midA - 1];

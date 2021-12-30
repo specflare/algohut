@@ -37,7 +37,7 @@ public class Sorting {
         }
 
         // i counts the number of elements lower than pivot
-        // we now place the pivot at its correct position.
+        // !!! we now place the pivot at its correct position !!!.
         // After the for loop ends, we will have between (left..i-1) all the elements lower than pivot
         // and between (i+1..right) all the elements greater than pivot.
         arr[i] ^= arr[right];

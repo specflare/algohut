@@ -8,6 +8,7 @@ import java.util.Map;
 // Given an array of integers nums and an integer target, return indices of the two numbers
 // such that they add up to target.
 // https://leetcode.com/problems/two-sum/
+// 1. Two Sum (Easy)
 public class TwoSum {
     // Two-pass hash-table solution: returns indices
     public static int[] twoSum_v2(int[] nums, int target) {

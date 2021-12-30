@@ -22,7 +22,6 @@ public class MaximumSumSubarray {
             }
         }
 
-        System.out.println("Best sum indices: " + best_start + " -> " + best_end);
         return best_sum;
     }
 

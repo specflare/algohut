@@ -2,6 +2,18 @@ package com.specflare.algohut.leetcode.arrays.sums;
 
 import java.util.*;
 
+/**
+ * Given an array nums of n integers, return an array of all the unique
+ *  quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
+ *      - 0 <= a, b, c, d < n
+ *      - a, b, c, and d are distinct.
+ *      - nums[a] + nums[b] + nums[c] + nums[d] == target
+ *
+ * You may return the answer in any order.
+ */
+
+// https://leetcode.com/problems/4sum/
+// 18. 4Sum (Medium)
 public class FourSum {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         if (null == nums || nums.length < 4) {

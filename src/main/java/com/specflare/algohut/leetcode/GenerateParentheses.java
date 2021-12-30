@@ -16,7 +16,7 @@ public class GenerateParentheses {
 
         List<String> result = new LinkedList<>();
         helper("", 2 * n, 0, result);
-        return new LinkedList<>(result);
+        return result;
     }
 
     private void helper(String s, int n, int sum, List<String> result) {
@@ -36,6 +36,6 @@ public class GenerateParentheses {
 
     public static void main(String[] args) {
         GenerateParentheses gp = new GenerateParentheses();
-        System.out.println(gp.generateParenthesis(16).size());
+        System.out.println(gp.generateParenthesis(4));
     }
 }

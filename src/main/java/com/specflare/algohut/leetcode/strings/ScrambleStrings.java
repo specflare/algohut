@@ -56,7 +56,6 @@ public class ScrambleStrings {
                 return true;
         }
 
-        // otherwise we return false.
         return false;
     }
 

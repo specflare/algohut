@@ -18,6 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 // Tags: Median, Queue, PriorityQueue, Stream
 // https://leetcode.com/problems/find-median-from-data-stream/
+// 295. Find Median from Data Stream (Hard)
 public class MedianOfDataStream {
     private final PriorityQueue<Integer> upperHalf, lowerHalf;
 
