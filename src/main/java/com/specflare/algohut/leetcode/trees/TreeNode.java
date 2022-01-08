@@ -14,6 +14,10 @@ public class TreeNode {
 
     @Override
     public String toString() {
+        return ""+val;
+    }
+
+    public String prettyPrint() {
         StringBuffer sb = new StringBuffer();
         print_r(this, 0, sb);
         return sb.toString();

@@ -1,8 +1,5 @@
 package com.specflare.algohut.leetcode.arrays;
 
-import com.specflare.algohut.Util;
-
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,9 +14,8 @@ import java.util.Map;
 public class BuyAndSellStockKTransactions {
     public int maxProfit(int k, int[] prices) {
         Map<Integer, Integer> memo = new HashMap<>();
-        int result = buyAndSell_recursive(prices, 0, -1, k, memo);
         // Util.printMatrix(memo);
-        return result;
+        return buyAndSell_recursive(prices, 0, -1, k, memo);
     }
 
     /**
