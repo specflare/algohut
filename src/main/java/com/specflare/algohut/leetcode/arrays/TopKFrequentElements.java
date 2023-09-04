@@ -22,7 +22,8 @@ public class TopKFrequentElements {
             freqs.put(num, freqs.getOrDefault(num, 0) + 1);
         }
 
-        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
+        PriorityQueue<Map.Entry<Integer, Integer>> pq =
+                new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
 
         for (Map.Entry<Integer, Integer> x : freqs.entrySet()) {
             pq.offer(x);

@@ -42,6 +42,7 @@ public class Knapsack {
         int K[][] = new int[n + 1][capacity + 1];
 
         // Build table K[][] in bottom up manner
+        // K[i][w] keeps the max value possible with first ith items, up to a capacity of w.
         for (int i = 0; i <= n; i++) {
             for (int w = 0; w <= capacity; w++) {
                 if (i == 0 || w == 0) {

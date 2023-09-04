@@ -121,15 +121,15 @@ public class BinaryTree<T extends Comparable<T> > {
         }
     }
 
-    @Override
-    public boolean equals(Object rhs) {
-        if (!(rhs instanceof BinaryTree)) {
-            return false;
-        }
-
-        BinaryTree<T> bt = (BinaryTree<T>) rhs;
-        return equalsImpl(root, bt.root);
-    }
+//    @Override
+//    public boolean equals(Object rhs) {
+//        if (!(rhs instanceof BinaryTree)) {
+//            return false;
+//        }
+//
+//        BinaryTree<T> bt = (BinaryTree<T>) rhs;
+//        return equalsImpl(root, bt.root);
+//    }
 
     private boolean equalsImpl(BinaryTreeNode<T> lhs, BinaryTreeNode<T> rhs) {
         if (null == lhs && null == rhs) {

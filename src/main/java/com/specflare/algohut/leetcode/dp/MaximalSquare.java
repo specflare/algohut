@@ -3,6 +3,10 @@ package com.specflare.algohut.leetcode.dp;
 /**
  * Given an m x n binary matrix filled with 0's and 1's,
  * find the largest square containing only 1's and return its area.
+ *
+ * Solution: The idea of the algorithm is to construct an auxiliary size matrix dp[][]
+ *  in which each entry dp[i][j] represents the size of the square sub-matrix with
+ *  all 1s including M[i][j] where M[i][j] is the rightmost and bottom-most entry in sub-matrix.
  */
 
 // 221. Maximal Square (Medium): Solution OK.

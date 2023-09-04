@@ -1,10 +1,12 @@
 package com.specflare.algohut.algos.dp;
 
 /**
+ * Problem: given 2 sequences of different length, find the longest common sub-sequence.
+ *
  * Steps to solve a DynProg problem
  *  1. Find the recursive relationship
  *  2. Draw the call tree from the recursive function
- *  3. Notice the Overlapping sub-problems (i.e. recursive calls with the same data that can be cached)
+ *  3. Notice the Overlapping sub-problems (i.e. recursive calls with the same value for params that can be cached)
  *  4. Cache the pre-computed sub-problems, and implement the algorithm iteratively.
  */
 
