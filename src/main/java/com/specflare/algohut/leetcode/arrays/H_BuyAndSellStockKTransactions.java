@@ -9,9 +9,9 @@ import java.util.Map;
  Note: You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).
  */
 
-// 123. Best Time to Buy and Sell Stock IV
+// 123. Best Time to Buy and Sell Stock IV (Hard)
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
-public class BuyAndSellStockKTransactions {
+public class H_BuyAndSellStockKTransactions {
     public int maxProfit(int k, int[] prices) {
         Map<Integer, Integer> memo = new HashMap<>();
         // Util.printMatrix(memo);
@@ -61,7 +61,7 @@ public class BuyAndSellStockKTransactions {
     }
 
     public static void main(String[] args) {
-        BuyAndSellStockKTransactions bsk = new BuyAndSellStockKTransactions();
+        H_BuyAndSellStockKTransactions bsk = new H_BuyAndSellStockKTransactions();
         System.out.println(bsk.maxProfit(2, new int[] {2, 4, 1})); // 2
         System.out.println(bsk.maxProfit(2, new int[] {3, 2, 6, 5, 0, 3})); // 7
         System.out.println(bsk.maxProfit(2, new int[] {3,3,5,0,0,3,1,4})); // 6

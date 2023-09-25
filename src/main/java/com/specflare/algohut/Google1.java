@@ -1,8 +1,15 @@
 package com.specflare.algohut;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 // Cards game
+// Each card has 4 attributes, and each attribute has 3 possible values. 3^4 different cards = 81.
+// Ask 1: Given 3 cards, return true if they form a set.
+//      A set contains cards whose attributes have different values 1 by 1.
+
+// Ask 2: Given an array of cards, find 3 cards that form a set and return their indices in the array.
 public class Google1 {
     public static class Card implements Comparable<Card> {
         public int[] attrs = new int[4]; // possible values: 1, 2, 3
@@ -26,19 +33,19 @@ public class Google1 {
         }
     }
 
-    // C1(1, 2, 3)
-    // C2(2, 3, 1)
-    // C3(3, 1, 2)
+    // Valid set (ask 1)
+    // C1(1, 2, 3, 3)
+    // C2(2, 3, 1, 2)
+    // C3(3, 1, 2, 1)
     public boolean isSet(Card c1, Card c2, Card c3) {
         for (int i = 0; i < 4; i++) {
-            boolean allEqual = false;
-            boolean allDifferent = c1.attrs[i] != c2.attrs[i] || c2.attrs[i] != c3.attrs[i];
+            Set<Integer> s = new HashSet<>();
+            s.add(c1.attrs[i]);
+            s.add(c2.attrs[i]);
+            s.add(c3.attrs[i]);
 
-            if (c1.attrs[i] == c2.attrs[i] || c2.attrs[i] == c3.attrs[i] || c1.attrs[i] == c3.attrs[i]) {
-                allEqual = true;
-            }
-
-            if (!allDifferent || !allEqual) {
+            // the same attribute must be different for each of the 3 cards.
+            if (s.size() != 3) {
                 return false;
             }
         }

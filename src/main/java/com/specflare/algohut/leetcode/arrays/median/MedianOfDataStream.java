@@ -84,7 +84,7 @@ public class MedianOfDataStream {
 
     public static void main(String[] args) {
         MedianOfDataStream mods = new MedianOfDataStream();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 7; i++) {
             int X = Math.abs(ThreadLocalRandom.current().nextInt()) % 100;
             System.out.print(X + " ");
             mods.addNum(X);

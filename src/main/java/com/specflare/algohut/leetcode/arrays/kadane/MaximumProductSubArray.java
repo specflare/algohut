@@ -15,6 +15,8 @@ public class MaximumProductSubArray {
         int currMin = 0;
         int maxSoFar = 0;
 
+        // we need to keep the minium product because nums[i] can be negative,
+        // and the product of 2 negative numbers turns into a positive number.
         for (int i = 0; i < nums.length; i++) {
             int oldMax = currMax;
             currMax = Math.max(nums[i], Math.max(nums[i] * currMax, nums[i] * currMin));

@@ -5,8 +5,9 @@ import com.specflare.algohut.Util;
 import java.util.HashMap;
 import java.util.Map;
 
-// Given an array of integers nums and an integer target, return indices of the two numbers
+// Given an array of integers nums and an integer target, return INDICES of the two numbers
 // such that they add up to target.
+// Attention: because we need to return the indices, we cannot sort the array!
 // https://leetcode.com/problems/two-sum/
 // 1. Two Sum (Easy)
 public class TwoSum {

@@ -1,5 +1,9 @@
 package com.specflare.algohut.leetcode.arrays;
 
+import com.specflare.algohut.Util;
+
+import java.util.Arrays;
+
 /**
  * Write a function to find the longest common prefix string amongst an array of strings.
  * If there is no common prefix, return an empty string "".
@@ -8,7 +12,7 @@ package com.specflare.algohut.leetcode.arrays;
 // 14. Longest Common Prefix (Easy)
 // https://leetcode.com/problems/longest-common-prefix/
 public class LongestCommonPrefix {
-    public String longestCommonPrefix(String[] strs) {
+    public String longestCommonPrefix2(String[] strs) {
         if (0 == strs.length) {
             return "";
         }
@@ -39,6 +43,17 @@ public class LongestCommonPrefix {
         }
 
         return strs[shortestStringIndex].substring(0, maxPrefixLen);
+    }
+
+    public String longestCommonPrefix(String[] strs) {
+        if (strs.length == 0) {
+            return "";
+        }
+
+        Arrays.sort(strs);
+        // shortest string is first in the array.
+        Util.printArray(strs, strs.length);
+        return "";
     }
 
     public static void main(String[] args) {

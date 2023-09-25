@@ -23,6 +23,7 @@ public class ThreeSum {
             int X = nums[i];
             for (int j = i + 1, k = nums.length - 1; j < k;) {
                 int sum2 = nums[j] + nums[k];
+
                 if (sum2 == -X) {
                     result.add(List.of(X, nums[j], nums[k]));
                     j++;
@@ -38,11 +39,40 @@ public class ThreeSum {
         return new LinkedList<>(result);
     }
 
+    // easier to understand
+    public List<List<Integer>> threeSum_v2(int[] nums) {
+        if (null == nums || nums.length < 3) {
+            return List.of();
+        }
+
+        Set<List<Integer>> result = new HashSet<>();
+
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 2; i++) {
+            int left = i + 1;
+            int right = nums.length - 1;
+
+            while (left < right) {
+                if (nums[i] + nums[left] + nums[right] == 0 ) {
+                    result.add(List.of(nums[i], nums[left], nums[right]));
+                    left++;
+                    right--;
+                } else if (nums[i] + nums[left] + nums[right] < 0) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+        }
+
+        return new LinkedList<>(result);
+    }
+
     public static void main(String[] args) {
         ThreeSum ts = new ThreeSum();
-        System.out.println(ts.threeSum(new int[] {-1, 0}));
-        System.out.println(ts.threeSum(new int[] {0}));
-        System.out.println(ts.threeSum(new int[] {-1, 0, 1, 2, -1, -4}));
-        System.out.println(ts.threeSum(new int[] {-5,-4,-3,-2,-1,0,1,2,3,4,5}));
+        System.out.println(ts.threeSum_v2(new int[] {-1, 0}));
+        System.out.println(ts.threeSum_v2(new int[] {0}));
+        System.out.println(ts.threeSum_v2(new int[] {-1, 0, 1, 2, -1, -4}));
+        System.out.println(ts.threeSum_v2(new int[] {-5,-4,-3,-2,-1,0,1,2,3,4,5}));
     }
 }

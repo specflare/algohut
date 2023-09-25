@@ -10,7 +10,7 @@ import java.util.Map;
  *  - nums1[i] + nums2[j] + nums3[k] + nums4[l] == 0
  *
  *  Solutions:
- *      1. Do it in O(n^4) - no extra space.
+ *      1. Do it in O(n^4) - no extra space (brute force)
  *      2. DO it in O(n^3 * log(n)) - no extra space.
  *      3. DO it in O(n^2) with O(n) extra space.
  */
