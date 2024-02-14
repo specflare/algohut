@@ -1,8 +1,10 @@
 package com.specflare.algohut.leetcode.strings;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * Given a string s, find the length of the longest substring without repeating characters.
+ */
 // 3. Longest Substring Without Repeating Characters (Medium)
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/
 public class LongestSubstringWithoutRepeatingChars {

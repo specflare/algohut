@@ -1,9 +1,9 @@
 package com.specflare.algohut.eulerproj;
 
+import java.util.*;
+
 // https://projecteuler.net/problem=14
 // Problem 14: Longest Collatz sequence
-
-import java.util.*;
 
 /**
  * The following iterative sequence is defined for the set of positive integers:
@@ -16,10 +16,11 @@ import java.util.*;
  * Which starting number, under one million, produces the longest chain?
  * NOTE: Once the chain starts the terms are allowed to go above one million.
  */
+
 public class P14_CollatzConjecture {
     // find the collatz number with the biggest number of hops
     static void maxCollatz(long limit) {
-        Map<Long, Integer> collatz = new HashMap<>();
+        Map<Long, Integer> collatz = new HashMap<>(); // key = startNum, val=numHops.
 
         collatz.put(1L, 1);
         collatz.put(2L, 2);

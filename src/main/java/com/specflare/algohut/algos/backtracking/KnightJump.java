@@ -51,7 +51,7 @@ public class KnightJump {
         }
     }
 
-    // naive implementation that generates all possible solutions
+    // naive implementation that generates only the 1st solution
     private static boolean knightJumpOnlyFirstSolution_r(int n, int[][] visit, int currRow, int currCol,
                                                          int endRow, int endCol, int depth) {
         if (currRow == endRow && currCol == endCol && (depth == n * n)) {

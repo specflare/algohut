@@ -12,7 +12,7 @@ import java.util.Random;
  *  - It has a root node whose children are roots of binomial trees of orders k-1, k-2, k-3...2,1,0.
  *  - It has a number of nodes equal to  Comb(K, D), where D is the depth where we count the nodes, D = 0..K.
  *
- * A BH satisfies the BH properties:
+ * A Binomial Heap satisfies the Binomial Heap properties:
  *  - Each BT in the BH obeys the min-heap property
  *  - There can be at most 1 BT for each order, including the 0 order.
  *  - A BH with n nodes consists of at most 1 + log(n) BTs.

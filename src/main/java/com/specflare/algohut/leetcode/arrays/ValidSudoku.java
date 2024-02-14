@@ -1,42 +1,31 @@
 package com.specflare.algohut.leetcode.arrays;
 
-import com.sun.source.util.Trees;
-
 import java.util.Set;
 import java.util.TreeSet;
 
 // https://leetcode.com/problems/valid-sudoku/
-// 36. Valid Sudoku
+// 36. Valid Sudoku (Medium)
+// Tags: [matrix] [set]
 public class ValidSudoku {
     public static boolean isValidSudoku(char[][] board) {
-
-        // validate each row
+        // validate each column and row
         for (int i = 0; i < 9; i++) {
-            int cnt = 0;
-            Set<Character> s = new TreeSet<>();
+            int col_cnt = 0;
+            int row_cnt = 0;
+            Set<Character> col_set = new TreeSet<>();
+            Set<Character> row_set = new TreeSet<>();
             for (int j = 0; j < 9; j++) {
                 if (board[i][j] != '.') {
-                    cnt ++;
-                    s.add(board[i][j]);
+                    col_cnt++;
+                    col_set.add(board[i][j]);
                 }
-            }
-
-            if (s.size() != cnt) {
-                return false;
-            }
-        }
-
-        for (int i = 0; i < 9; i++) {
-            int cnt = 0;
-            Set<Character> s = new TreeSet<>();
-            for (int j = 0; j < 9; j++) {
                 if (board[j][i] != '.') {
-                    cnt ++;
-                    s.add(board[j][i]);
+                    row_cnt++;
+                    row_set.add(board[i][j]);
                 }
             }
 
-            if (s.size() != cnt) {
+            if (col_set.size() != col_cnt || row_set.size() != row_cnt) {
                 return false;
             }
         }
@@ -85,15 +74,15 @@ public class ValidSudoku {
 
         char[][] board_f =
             {
-                    {'8','3','.','.','7','.','.','.','.'}
-                    ,{'6','.','.','1','9','5','.','.','.'}
-                    ,{'.','9','8','.','.','.','.','6','.'}
-                    ,{'8','.','.','.','6','.','.','.','3'}
-                    ,{'4','.','.','8','.','3','.','.','1'}
-                    ,{'7','.','.','.','2','.','.','.','6'}
-                    ,{'.','6','.','.','.','.','2','8','.'}
-                    ,{'.','.','.','4','1','9','.','.','5'}
-                    ,{'.','.','.','.','8','.','.','7','9'}
+                {'8','3','.','.','7','.','.','.','.'}
+                ,{'6','.','.','1','9','5','.','.','.'}
+                ,{'.','9','8','.','.','.','.','6','.'}
+                ,{'8','.','.','.','6','.','.','.','3'}
+                ,{'4','.','.','8','.','3','.','.','1'}
+                ,{'7','.','.','.','2','.','.','.','6'}
+                ,{'.','6','.','.','.','.','2','8','.'}
+                ,{'.','.','.','4','1','9','.','.','5'}
+                ,{'.','.','.','.','8','.','.','7','9'}
             };
         System.out.println(isValidSudoku(board_f)); // false
     }

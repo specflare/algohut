@@ -28,7 +28,7 @@ public class Sorting {
 
         for (int j = left; j <= right; j++) {
             if (arr[j] < pivot) {
-                // swap arr[i] with arr[j]
+                // swap arr[i] with arr[j], thus placing lower elements left of pivot.
                 arr[i] ^= arr[j];
                 arr[j] ^= arr[i];
                 arr[i] ^= arr[j];

@@ -1,29 +1,37 @@
 package com.specflare.algohut.leetcode.math;
 
+/**
+ * Implement pow(x, n), which calculates x raised to the power n (i.e., xn).
+ */
+
+// https://leetcode.com/problems/powx-n/description/
+// Leetcode #50. Pow(x, n)
 public class Pow {
     public double myPow(double x, int n) {
-        if (n > 0)
-            return myPow_p(x, n);
-
-        return 1.0 / myPow_p(x, -n);
-    }
-
-    private double myPow_p(double x, int n) {
-        if (0 == n) {
+        if (n == 0) {
             return 1;
         }
 
-        if (1 == n) {
+        if (n == 1) {
             return x;
         }
 
-        double p = myPow(x, n / 2);
-
-        if (n % 2 == 0) {
-            return p * p;
+        if (n < 0) {
+            if (n % 2 == 0) {
+                n = n / 2;
+                n = -n;
+                x = (1 / x) * (1 / x);
+            } else {
+                n = -n;
+                x = 1 / x;
+            }
         }
 
-        return p * p * x;
+        if (n % 2 == 0) {
+            return myPow(x * x, n / 2);
+        }
+
+        return x * myPow(x * x, n / 2);
     }
 
     public static void main(String[] args) {

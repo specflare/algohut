@@ -1,7 +1,5 @@
 package com.specflare.algohut;
 
-import java.util.List;
-
 public class Playground {
     static class Obj {
         int a, b;
@@ -16,19 +14,21 @@ public class Playground {
         }
     }
 
+
+
     public static void main(String[] args) {
-        List<Obj> list = List.of(new Obj(1, 1),
-                new Obj(2, 2),
-                new Obj(3, 3),
-                new Obj(4, 4),
-                new Obj(5, 5));
-
-        list.forEach(elem -> {
-            elem.a += 100;
-            elem.b += 100;
-            throw new ArithmeticException("gigel!");
-        });
-
-        System.out.println(list);
+//        List<Obj> list = List.of(new Obj(1, 1),
+//                new Obj(2, 2),
+//                new Obj(3, 3),
+//                new Obj(4, 4),
+//                new Obj(5, 5));
+//
+//        list.forEach(elem -> {
+//            elem.a += 100;
+//            elem.b += 100;
+//            throw new ArithmeticException("gigel!");
+//        });
+//
+//        System.out.println(list);
     }
 }

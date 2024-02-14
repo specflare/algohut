@@ -5,11 +5,10 @@ import java.util.*;
 /**
  * Given a string s, partition s such that every substring of the partition is a palindrome.
  * Return all possible palindrome partitioning of s.
- *
  * A palindrome string is a string that reads the same backward as forward.
  */
 
-// 131. Palindrome Partitioning
+// 131. Palindrome Partitioning (Medium)
 // https://leetcode.com/problems/palindrome-partitioning/
 public class PalindromePartitioning {
     public List<List<String>> partition(String s) {
@@ -50,8 +49,8 @@ public class PalindromePartitioning {
 
     public static void main(String[] args) {
         PalindromePartitioning pp = new PalindromePartitioning();
-//        System.out.println(pp.partition("abba"));
-//        System.out.println(pp.partition("aab"));
+        System.out.println(pp.partition("abba"));
+        System.out.println(pp.partition("aab"));
         System.out.println(pp.partition("cabababcbc"));
     }
 }

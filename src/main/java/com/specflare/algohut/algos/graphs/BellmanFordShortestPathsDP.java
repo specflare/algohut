@@ -8,6 +8,12 @@ package com.specflare.algohut.algos.graphs;
  * Time complexity: O(V * E)
  *
  * Bellman-Ford is a simple case of DP.
+ *
+ * Algorithm:
+ *  - the distance dist[] to all nodes in the graph is initialized to MAX_INTEGER
+ *  - the predecessor pred[] for each node is initialized to -1.
+ *  - if (dist[currEdge.src] + currEdge.cost < dist[currEdge.dst]) we update the dist[] to currEdge.dst node.
+ *  - repeat last step N-1 times, where N is the number of nodes.
  */
 
 // https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm
@@ -25,7 +31,7 @@ public class BellmanFordShortestPathsDP {
 
         dist[startNode] = 0;
 
-        // Step 2: relax edges repeatedly
+        // Step 2: relax edges repeatedly N-1 times, where N is the number of nodes.
         for (int node = 0; node < g.getNumNodes() - 1; node++) {
             for (int edge = 0; edge < g.getNumEdges(); edge++) {
                 Graph.Edge currEdge = g.edges[edge];
