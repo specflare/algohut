@@ -2,8 +2,8 @@ package com.specflare.algohut.leetcode.math;
 
 import com.specflare.algohut.Util;
 
+// 338. Counting Bits (Easy)
 // https://leetcode.com/problems/counting-bits/
-// Leetcode #338. Counting Bits (Easy)
 public class CountingBits {
     public int[] countBits(int n) {
         int[] result = new int[n + 1];

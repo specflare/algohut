@@ -5,7 +5,7 @@ package com.specflare.algohut.leetcode.math;
  */
 
 // https://leetcode.com/problems/powx-n/description/
-// Leetcode #50. Pow(x, n)
+// 50. Pow(x, n) (Medium)
 public class Pow {
     public double myPow(double x, int n) {
         if (n == 0) {

@@ -12,6 +12,7 @@ import java.util.Arrays;
  * The '.' character indicates empty cells.
  */
 
+// 37. Sudoku Solver
 // https://leetcode.com/problems/sudoku-solver/
 public class SudokuSolver {
     private static final int SIZE = 9;

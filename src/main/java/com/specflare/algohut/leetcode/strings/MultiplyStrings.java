@@ -1,7 +1,7 @@
 package com.specflare.algohut.leetcode.strings;
 
 // https://leetcode.com/problems/multiply-strings/description/
-// 43. Multiply Strings
+// 43. Multiply Strings (Medium)
 public class MultiplyStrings {
     public String multiply(String num1, String num2) {
         String num1_reversed = reverse(num1);

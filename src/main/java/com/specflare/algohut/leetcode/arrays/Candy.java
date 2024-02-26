@@ -1,4 +1,4 @@
-package com.specflare.algohut.leetcode;
+package com.specflare.algohut.leetcode.arrays;
 
 import com.specflare.algohut.Util;
 import java.util.Arrays;

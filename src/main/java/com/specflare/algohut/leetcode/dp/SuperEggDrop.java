@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * You are given k identical eggs and you have access to a building with n floors labeled from 1 to n.
+ * You are given k identical eggs, and you have access to a building with n floors labeled from 1 to n.
  * You know that there exists a floor f where 0 <= f <= n such that any egg dropped at a floor
  * higher than f will break, and any egg dropped at or below floor f will not break.
  * Each move, you may take an unbroken egg and drop it from any floor x (where 1 <= x <= n).
@@ -46,8 +46,8 @@ public class SuperEggDrop {
                 int minVal = Integer.MAX_VALUE;
                 for (int h = 1; h <= j; h++) {
                     minVal = Math.min(minVal, 1 + Math.max(
-                            dp[i - 1][h - 1], // egg breaks, so eggs-1, floors -1
-                            dp[i][j - h]        // egg does not break,
+                            dp[i - 1][h - 1], // egg breaks, so eggs-1, floors-1
+                            dp[i][j - h]      // egg does not break,
                     ));
                 }
 
@@ -67,8 +67,8 @@ public class SuperEggDrop {
 
         for (int floor = 1; floor <= numFloors; floor++) {
             // we pick the best worst case
-            // Case 1: egg breaks => we count 1 move and rerun for (eggs-1, floors-1)
-            // Case 2: egg does not break => we count 1 move and rerun for (eggs, remaining floors = numFloors-currFloor)
+            // a: egg breaks => we count 1 move and rerun for (eggs-1, floors-1)
+            // b: egg does not break => we count 1 move and rerun for (eggs, remaining floors = numFloors-currFloor)
             int numStepsEggBreaks = superEggDrop_recursive(numEggs - 1, floor - 1);
             int numStepsEggDoesntBreak = superEggDrop_recursive(numEggs, numFloors - floor);
             minVal = Math.min(minVal, 1 + Math.max(numStepsEggBreaks, numStepsEggDoesntBreak));
