@@ -18,7 +18,7 @@ public class LCS {
             return 0;
 
         if (X[m - 1] == Y[n - 1])
-            return 1 + lcs_rec(X, Y, m-1, n-1);
+            return 1 + lcs_rec(X, Y, m - 1, n - 1);
 
         return Math.max(
                 lcs_rec(X, Y, m, n - 1),
@@ -27,21 +27,25 @@ public class LCS {
 
     // iterative solution, with tabulation
     static int lcs_memoization( char[] X, char[] Y, int m, int n ) {
-        int[][] L = new int[m + 1][n + 1];
+        int[][] dp = new int[m + 1][n + 1];
 
-        // Following steps build L[m+1][n+1] in bottom up fashion.
-        // Note that L[i][j] contains length of LCS of X[0..i-1] and Y[0..j-1]
+        // Following steps build dp[m+1][n+1] in bottom up fashion.
+        // Note that dp[i][j] contains length of LCS of X[0..i-1] and Y[0..j-1]
         for (int i = 0; i <= m; i++) {
             for (int j = 0; j <= n; j++) {
                 if (i == 0 || j == 0)
-                    L[i][j] = 0;
+                    dp[i][j] = 0;
                 else if (X[i - 1] == Y[j - 1])
-                    L[i][j] = L[i - 1][j - 1] + 1;
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
                 else
-                    L[i][j] = Math.max(L[i - 1][j], L[i][j - 1]);
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
             }
         }
 
-        return L[m][n];
+        return dp[m][n];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(lcs_rec(new char[] {'a', 'b', 'c', 'd', 'e'}, new char[] {'b', 'c', 'z', 'e'}, 5, 4));
     }
 }

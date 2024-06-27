@@ -39,37 +39,39 @@ public class Knapsack {
 
     // Iterative approach: bottom-up.
     static int knapsackIterative(Item[] items, int n, int capacity) {
-        int K[][] = new int[n + 1][capacity + 1];
+        int[][] dp = new int[n + 1][capacity + 1];
 
-        // Build table K[][] in bottom up manner
-        // K[i][w] keeps the max value possible with first ith items, up to a capacity of w.
+        // Build table dp[][] in bottom up manner
+        // dp[i][w] keeps the max value possible with first i-th items, up to a capacity of w.
         for (int i = 0; i <= n; i++) {
             for (int w = 0; w <= capacity; w++) {
                 if (i == 0 || w == 0) {
-                    K[i][w] = 0;
+                    dp[i][w] = 0;
                 }
                 else if (items[i - 1].weight <= w) {
                     // weight of the current item is less than the current w.
                     // we have 2 options: put it in Knapsack or not put it.
-                    K[i][w] = Math.max(
+                    dp[i][w] = Math.max(
                             // we put it: so we take the old value and we add the current value.
-                            items[i - 1].value + K[i - 1][w - items[i - 1].weight],
-                            K[i - 1][w]); // go on with the value accumulated for the previous item and weight.
+                            items[i - 1].value + dp[i - 1][w - items[i - 1].weight],
+                            dp[i - 1][w]); // go on with the value accumulated for the previous item and weight.
                 }
-                else
-                    K[i][w] = K[i - 1][w];
+                else {
+                    // weight of current item is greater than remaining capacity, so skip it completely.
+                    dp[i][w] = dp[i - 1][w];
+                }
             }
         }
 
         System.out.println("Items x Capacities: ");
         for (int i = 0; i <= n; i++) {
             for (int w = 0; w <= capacity; w++) {
-                System.out.print(K[i][w] + " ");
+                System.out.print(dp[i][w] + " ");
             }
 
             System.out.println();
         }
 
-        return K[n][capacity];
+        return dp[n][capacity];
     }
 }

@@ -31,7 +31,7 @@ public class DetectSquares {
         int xPos = point[0];
         int yPos = point[1];
         List<Integer> byXList = byX.getOrDefault(xPos, Collections.emptyList());
-        if (byXList.size() == 0) {
+        if (byXList.isEmpty()) {
             return 0;
         }
         int result = 0;

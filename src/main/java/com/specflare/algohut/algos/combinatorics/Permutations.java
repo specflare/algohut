@@ -40,15 +40,9 @@ public class Permutations {
             genPermHeapRec(arr, n - 1);
             for (int i = 0; i < n - 1; ++i) {
                 if (0 == (i % 2)) {
-                    // swap a[i] with a[n-1]
-                    arr[i] ^= arr[ n - 1];
-                    arr[ n - 1] ^= arr[i];
-                    arr[i] ^= arr[ n - 1];
+                    swap(arr, i, n - 1);
                 } else {
-                    // swap a[0] with a[n-1]
-                    arr[0] ^= arr[ n - 1];
-                    arr[ n - 1] ^= arr[0];
-                    arr[0] ^= arr[ n - 1];
+                    swap(arr, 0, n - 1);
                 }
                 genPermHeapRec(arr, n - 1);
             }

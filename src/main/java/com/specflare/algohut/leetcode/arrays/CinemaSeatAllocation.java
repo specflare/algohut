@@ -49,17 +49,20 @@ public class CinemaSeatAllocation {
         return count;
     }
 
+    // rowData is a bitmask (10 bits) containing a set bit for each occupied seat.
     private int getNumFamilies(int rowData) {
         // there are 3 possible arrangements.
-        int f1 = 0b11110;
-        int f2 = 0b1111000;
-        int f3 = 0b111100000;
+        int pos_right  = 0b000_0011_110;
+        int pos_middle = 0b000_1111_000;
+        int pos_left   = 0b011_1100_000;
 
-        if ((0 == (rowData & f1)) && (0 == (rowData & f3))) {
+        // first try to put 2 families on the row
+        if ((0 == (rowData & pos_right)) && (0 == (rowData & pos_left))) {
             return 2;
         }
 
-        if (0 == (rowData & f2) || (0 == (rowData & f1)) || (0 == (rowData & f3))) {
+        // then try to put 1 family on the row, in the middle
+        if (0 == (rowData & pos_middle) || (0 == (rowData & pos_right)) || (0 == (rowData & pos_left))) {
             return 1;
         }
 

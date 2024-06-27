@@ -16,7 +16,7 @@ import com.specflare.algohut.Util;
  * - update
  * Complexity:
  *   - Time: O(n)
- *   - Space: O(n)
+ *   - Space: O(1)
  */
 // https://leetcode.com/problems/jump-game-ii/description/
 // 45. Jump Game II (Medium)
@@ -41,8 +41,8 @@ public class JumpGame2 {
 
     public static void main(String[] args) {
         JumpGame2 jg2 = new JumpGame2();
-        System.out.println(jg2.jump(new int[]{2, 3, 1, 1, 4}));
 
+        System.out.println(jg2.jump(new int[]{2, 3, 1, 1, 4}));
         System.out.println(jg2.jump(new int[]{2, 3, 0, 1, 4}));
     }
 }

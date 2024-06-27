@@ -19,17 +19,18 @@ public class CheckIfArrayPairsAreDivByK {
             int compl = (k - num) % k;
 
             if (map.containsKey(compl)) {
-                int numOccur = map.get(compl) - 1;
-                if (0 == numOccur) {
+                int numOccur = map.get(compl);
+                if (1 == numOccur) {
                     map.remove(compl);
                 } else {
-                    map.put(compl, numOccur);
+                    map.put(compl, numOccur + 1);
                 }
             } else {
                 map.put(num, map.getOrDefault(num, 0) + 1);
             }
         }
-        return map.size() == 0;
+
+        return map.isEmpty();
     }
 
     public static void main(String[] args) {

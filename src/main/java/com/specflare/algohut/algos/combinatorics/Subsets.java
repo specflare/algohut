@@ -1,4 +1,4 @@
-package com.specflare.algohut.algos.backtracking;
+package com.specflare.algohut.algos.combinatorics;
 
 import java.util.Stack;
 

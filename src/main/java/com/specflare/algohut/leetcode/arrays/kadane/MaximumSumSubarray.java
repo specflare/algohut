@@ -1,7 +1,7 @@
 package com.specflare.algohut.leetcode.arrays.kadane;
 
 // https://leetcode.com/problems/maximum-subarray/
-// 53. Maximum Subarray (Medium): Kadane's algorithm
+// 53. Maximum Sum Subarray (Medium): Kadane's algorithm
 public class MaximumSumSubarray {
     public int maxSubArray(int[] nums) {
         int current_sum = 0;

@@ -2,37 +2,32 @@ package com.specflare.algohut.leetcode.slidingwindow;
 
 import com.specflare.algohut.Util;
 
+import java.util.LinkedList;
 import java.util.PriorityQueue;
 
+/**
+ * Solution:
+ * Keep a deque of numbers for each sliding window, such that the last element
+ * int the deque is the max of the sliding window.
+ */
 // https://leetcode.com/problems/sliding-window-maximum/description/
+// https://www.programcreek.com/2014/05/leetcode-sliding-window-maximum-java/
 // 239. Sliding Window Maximum (Hard)
 public class SlidingWindowMax {
+
+    // n = 10, k = 3 => res = 8.
+
     public int[] maxSlidingWindow(int[] nums, int k) {
         int[] result = new int[nums.length - k + 1];
-        int r = 0;
+        LinkedList<Integer> deque = new LinkedList<>();
 
-        int max1 = Integer.MIN_VALUE, max2 = Integer.MIN_VALUE;
-        for (int i = 0; i < k; i++) {
-            if (nums[i] > max2) {
-                // keep the last 2 max numbers.
-                max1 = max2;
-                max2 = nums[i];
+        for (int i = 0; i < nums.length; i++) {
+            while(!deque.isEmpty() && nums[deque.getFirst()] <= nums[i]) {
+                deque.removeFirst();
             }
-        }
-
-        result[r++] = max2;
-
-        for (int i = k; i < nums.length; i++) {
-            if (nums[i] >= max2) {
-                if (nums[i] > nums[i - k]) {
-                    max1 = max2;
-                    max2 = nums[i];
-                    result[r++] = max2;
-                } else {
-
-                }
-            } else {
-                // 5 . . . . 4
+            deque.addLast(i);
+            if (i + 1 >= k) {
+                result[i + 1 - k] = nums[deque.getFirst()];
             }
         }
 
@@ -49,15 +44,13 @@ public class SlidingWindowMax {
         for (int i = 0; i < k; i++) {
             pq.add(nums[i]);
         }
-        // System.out.println("pq = " + pq);
 
         for (int i = k; i < nums.length; i++) {
             result[r++] = pq.peek();
             pq.remove(nums[i - k]);
             pq.add(nums[i]);
-            // System.out.println("pq = " + pq);
         }
-        result[r++] = pq.peek();
+        result[r] = pq.peek();
 
         return result;
     }

@@ -35,7 +35,7 @@ public class MedianOfDataStream {
      *  we move one element from one side to the other, so that their size difference is at most 1.
      */
     public void addNum(int num) {
-        if (lowerHalf.size() == 0 && upperHalf.size() == 0) {
+        if (lowerHalf.isEmpty() && upperHalf.isEmpty()) {
             lowerHalf.add(num);
             return;
         }
@@ -66,15 +66,15 @@ public class MedianOfDataStream {
     }
 
     public double findMedian() {
-        if (lowerHalf.size() == 0 && upperHalf.size() == 0) {
+        if (lowerHalf.isEmpty() && upperHalf.isEmpty()) {
             return 0;
         }
 
-        if (lowerHalf.size() == 0 || lowerHalf.size() < upperHalf.size()) {
+        if (lowerHalf.isEmpty() || lowerHalf.size() < upperHalf.size()) {
             return upperHalf.peek();
         }
 
-        if (upperHalf.size() == 0 || lowerHalf.size() > upperHalf.size()) {
+        if (upperHalf.isEmpty() || lowerHalf.size() > upperHalf.size()) {
             return lowerHalf.peek();
         }
 

@@ -13,23 +13,26 @@ package com.specflare.algohut.leetcode.arrays;
 // https://leetcode.com/problems/gas-station/
 public class GasStation {
     public int canCompleteCircuit(int[] gas, int[] cost) {
-        int sumTanks = 0;
-        int total = 0;
-        int start = 0;
+        int curr = 0;
+        int total_gas = 0, total_cost = 0, start = 0;
 
         for (int i = 0; i < gas.length; i++) {
-            int tank = gas[i] - cost[i];
-            total += tank;
+            total_gas += gas[i];
+            total_cost += cost[i];
+        }
 
-            if (sumTanks >= 0) {
-                sumTanks += tank; // we accumulate.
-            } else {
-                sumTanks = tank; // we reset and start from here, and return i.
-                start = i;
+        if (total_gas < total_cost)
+            return -1;
+
+        for (int i = 0; i < gas.length; i++) {
+            curr += gas[i] - cost[i];
+            if (curr < 0) {
+                start = i + 1;
+                curr = 0;
             }
         }
 
-        return (total >= 0) ? start : -1;
+        return start;
     }
 
     public static void main(String[] args) {
