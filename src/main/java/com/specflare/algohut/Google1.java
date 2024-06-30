@@ -1,64 +1,47 @@
 package com.specflare.algohut;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Comparator;
 
 // Cards game
-// Each card has 4 attributes, and each attribute has 3 possible values. 3^4 different cards = 81.
-// Ask 1: Given 3 cards, return true if they form a set.
-//      A set contains cards whose attributes have different values 1 by 1.
-
-// Ask 2: Given an array of cards, find 3 cards that form a set and return their indices in the array.
 public class Google1 {
-    public static class Card implements Comparable<Card> {
-        public int[] attrs = new int[4]; // possible values: 1, 2, 3
-
-        public Card(int attr1, int attr2, int attr3, int attr4) {
-            this.attrs[0] = attr1;
-            this.attrs[1] = attr2;
-            this.attrs[2] = attr3;
-            this.attrs[3] = attr4;
-        }
-
-        @Override
-        public int compareTo(Card o) {
-            for (int i = 0; i < 4; i++) {
-                if (attrs[i] != o.attrs[i]) {
-                    return attrs[i] > o.attrs[i] ? 1 : -1;
-                }
-            }
-
-            return 0;
+    // total number of different cards 3 ^ 4 = 81.
+    public static class Card {
+        int attr1, attr2, attr3, attr4; // values can be 1, 2, 3.
+        public Card(int a1, int a2, int a3, int a4) {
+            attr1 = a1;
+            attr2 = a2;
+            attr3 = a3;
+            attr4 = a4;
         }
     }
 
-    // Valid set (ask 1)
-    // C1(1, 2, 3, 3)
-    // C2(2, 3, 1, 2)
-    // C3(3, 1, 2, 1)
-    public boolean isSet(Card c1, Card c2, Card c3) {
-        for (int i = 0; i < 4; i++) {
-            Set<Integer> s = new HashSet<>();
-            s.add(c1.attrs[i]);
-            s.add(c2.attrs[i]);
-            s.add(c3.attrs[i]);
+    Comparator<Card> cardsComp = Comparator.comparingInt((Card c) -> c.attr1)
+            .thenComparingInt((Card c) -> c.attr2)
+            .thenComparingInt((Card c) -> c.attr3)
+            .thenComparingInt((Card c) -> c.attr4);
 
-            // the same attribute must be different for each of the 3 cards.
-            if (s.size() != 3) {
-                return false;
-            }
+    // C1(1, 2, 3, 1)
+    // C2(2, 3, 1, 3)
+    // C3(3, 1, 2, 2)
+    public boolean isSet(Card c1, Card c2, Card c3) {
+        if (c1.attr1 == c2.attr1 || c2.attr1 == c3.attr1 || c1.attr1 == c3.attr1) {
+            return false;
+        }
+
+        if (c1.attr2 == c2.attr2 || c2.attr2 == c3.attr2 || c1.attr2 == c3.attr2) {
+            return false;
+        }
+
+        if (c1.attr3 == c2.attr3 || c2.attr3 == c3.attr3 || c1.attr3 == c3.attr3) {
+            return false;
+        }
+
+        if (c1.attr4 == c2.attr4 || c2.attr4 == c3.attr4 || c1.attr4 == c3.attr4) {
+            return false;
         }
 
         return true;
-    }
-
-    int findMissingAttr(Card c1, Card c2, int attrIndex) {
-        if (c1.attrs[attrIndex] == c2.attrs[attrIndex]) {
-            return c1.attrs[attrIndex];
-        }
-
-        return 6 - c1.attrs[attrIndex] - c2.attrs[attrIndex];
     }
 
     public int binSearch(Card[] cards, Card key, int left, int right) {
@@ -72,28 +55,28 @@ public class Google1 {
             return middle;
         }
 
-        if (key.compareTo(cards[middle]) < 0) {
+        if (cardsComp.compare(key, cards[middle]) < 0) {
             return binSearch(cards, key, left, middle);
         }
 
         return binSearch(cards, key, middle + 1, right);
     }
 
+    public Card getMissingCard(Card c1, Card c2) {
+        return new Card(6 - c1.attr1 - c2.attr1,
+                6 - c1.attr2 - c2.attr2,
+                6 - c1.attr3 - c2.attr3,
+                6 - c1.attr4 - c2.attr4);
+    }
+
     public int[] findSet(Card[] cards) {
-        Arrays.sort(cards);
+        Arrays.sort(cards, cardsComp);
 
-        for (int i = 0; i < cards.length - 1; i++) {
-            for (int j = i + 1; j < cards.length; j++) {
-                Card missingCard = new Card(
-                        findMissingAttr(cards[i], cards[j], 0),
-                        findMissingAttr(cards[i], cards[j], 1),
-                        findMissingAttr(cards[i], cards[j], 2),
-                        findMissingAttr(cards[i], cards[j], 3)
-                );
-
-                int pos = binSearch(cards, missingCard, j + 1, cards.length);
-                if (pos != -1) {
-                    return new int[] {i, j, pos};
+        for (int i = 0; i < cards.length - 2; i++) {
+            for (int j = i + 1; j < cards.length - 1; j++) {
+                int k = binSearch(cards, getMissingCard(cards[i], cards[j]), j + 1, cards.length);
+                if (k != -1) {
+                    return new int[] {i, j, k};
                 }
             }
         }

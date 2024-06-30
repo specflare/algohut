@@ -35,13 +35,12 @@ public class DistinctSubsequences {
             }
         }
 
-        int res = numDistinctSubseq(s, t, memo, s.length() - 1, t.length() - 1);
+        int res = numDistinctSubseq_r(s, t, memo, s.length() - 1, t.length() - 1);
         Util.printMatrix(memo);
         return res;
     }
 
-
-    public int numDistinctSubseq(String s, String t, int[][] memo, int i, int j) {
+    public int numDistinctSubseq_r(String s, String t, int[][] memo, int i, int j) {
         if (i < j) {
             memo[i][j] = 0;
             return 0;
@@ -52,11 +51,11 @@ public class DistinctSubsequences {
                 return 1;
             }
 
-            memo[i][j] = numDistinctSubseq(s, t, memo, i - 1, j - 1)
-                    + numDistinctSubseq(s, t, memo, i - 1, j);
+            memo[i][j] = numDistinctSubseq_r(s, t, memo, i - 1, j - 1)
+                    + numDistinctSubseq_r(s, t, memo, i - 1, j);
             return memo[i][j];
         }
-        memo[i][j] = numDistinctSubseq(s, t, memo, i - 1, j);
+        memo[i][j] = numDistinctSubseq_r(s, t, memo, i - 1, j);
         return memo[i][j];
     }
 

@@ -1,21 +1,21 @@
-//package com.specflare.algohut.leetcode.backtracking;
-//
-//import java.util.*;
-//
-///**
-// * A transformation sequence from word beginWord to word endWord using a dictionary wordList is a sequence of
-// * words beginWord -> s1 -> s2 -> ... -> sk such that:
-// *
-// * Every adjacent pair of words differs by a single letter.
-// * Every si for 1 <= i <= k is in wordList. Note that beginWord does not need to be in wordList.
-// * sk == endWord
-// * Given two words, beginWord and endWord, and a dictionary wordList, return all the shortest transformation
-// * sequences from beginWord to endWord, or an empty list if no such sequence exists.
-// * Each sequence should be returned as a list of the words [beginWord, s1, s2, ..., sk].
-// */
-//// 126. Word Ladder II (Hard) - NOT WORKING YET !!!
-//// https://leetcode.com/problems/word-ladder-ii/
-//public class WordLadder2 {
+package com.specflare.algohut.leetcode.backtracking;
+
+import java.util.*;
+
+/**
+ * A transformation sequence from word beginWord to word endWord using a dictionary wordList is a sequence of
+ * words beginWord -> s1 -> s2 -> ... -> sk such that:
+ *
+ * Every adjacent pair of words differs by a single letter.
+ * Every si for 1 <= i <= k is in wordList. Note that beginWord does not need to be in wordList.
+ * sk == endWord
+ * Given two words, beginWord and endWord, and a dictionary wordList, return all the shortest transformation
+ * sequences from beginWord to endWord, or an empty list if no such sequence exists.
+ * Each sequence should be returned as a list of the words [beginWord, s1, s2, ..., sk].
+ */
+// 126. Word Ladder II (Hard) - NOT WORKING YET !!!
+// https://leetcode.com/problems/word-ladder-ii/
+public class WordLadder2 {
 //    Map<String, List<String>> adjMatrix = new HashMap<>();
 //    List<List<String>> result = new ArrayList<>();
 //    public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
@@ -71,4 +71,22 @@
 //
 //        return (1 == count);
 //    }
-//}
+
+    // -----------------------------
+    public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+        Set<String> words = new HashSet<>(wordList);
+        List<List<String>> result = new ArrayList<>();
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        WordLadder2 wl = new WordLadder2();
+
+        // 2 shortest path transformations:
+        // "hit" -> "hot" -> "dot" -> "dog" -> "cog"
+        // "hit" -> "hot" -> "lot" -> "log" -> "cog"
+        System.out.println(wl.findLadders("hit",
+                "cog", List.of("hot","dot","dog","lot","log","cog")));
+    }
+}

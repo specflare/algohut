@@ -10,6 +10,7 @@ import java.util.PriorityQueue;
 
 // 23. Merge k Sorted Lists (Hard)
 // Hard: https://leetcode.com/problems/merge-k-sorted-lists/
+    // 23. Merge k Sorted Lists (Hard)
 public class MergeKSortedLists {
     public ListNode mergeKLists(ListNode[] lists) {
         PriorityQueue<ListNode> pq = new PriorityQueue<>(Comparator.comparingInt(o -> o.val));

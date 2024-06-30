@@ -3,7 +3,7 @@ package com.specflare.algohut.leetcode.arrays.median;
 import com.specflare.algohut.Util;
 
 /**
- * If k is the middle element, this implementation also solves finds the median of 2 sorted arrays.
+ * If k is the middle element, this implementation also finds the median of 2 sorted arrays.
  */
 
 // https://fizzbuzzed.com/top-interview-questions-2/
@@ -12,6 +12,7 @@ public class GetKthNumberFrom2SortedArrays {
     /**
      * Time complexity: (O(log(m + n)))
      * Space complexity: O(1)
+     * k represents the kth index to be returned.
      */
     private static int getKth(int[] arr1, int[] arr2, int i, int j, int k) {
         if (i == arr1.length) {
@@ -32,7 +33,7 @@ public class GetKthNumberFrom2SortedArrays {
         int a = arr1[i + mid1 - 1];
         int b = arr2[j + mid2 - 1];
 
-        System.out.println(String.format("i = %d, j = %d, k = %d, mid1=%d, mid2=%d, a=%d, b=%d", i, j, k, mid1, mid2, a, b));
+        System.out.printf("i = %d, j = %d, k = %d, mid1=%d, mid2=%d, a=%d, b=%d\n", i, j, k, mid1, mid2, a, b);
 
         if (a < b) {
             // discard left of 'a'

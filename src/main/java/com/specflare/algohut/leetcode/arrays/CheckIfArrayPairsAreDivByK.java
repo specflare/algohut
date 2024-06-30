@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Given an array of integers arr of even length n and an integer k.
+ * Given an array of integers arr[] of even length n and an integer k.
  * We want to divide the array into exactly n / 2 pairs such that the sum of each pair is divisible by k.
  * Return True If you can find a way to do that or False otherwise.
  */

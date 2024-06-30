@@ -44,7 +44,7 @@ public class BinaryTreeAlgos {
             return null;
         }
 
-        // we search for either key in the whole tree, and return the either node.
+        // we search for either key in the whole tree, and return either node.
         if (localRoot.data.equals(key1) || localRoot.data.equals(key2)) {
             return localRoot;
         }

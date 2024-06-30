@@ -8,7 +8,8 @@ import com.specflare.algohut.Util;
  * DO NOT allocate another 2D matrix and do the rotation.
  */
 
-// https://leetcode.com/problems/rotate-image/
+// https://leetcode.com/problems/rotate-image/ (Medium)
+// https://www.programcreek.com/2013/01/leetcode-rotate-image-java/
 public class RotateImage {
     // uses transpose + mirror left/right
     public static void rotate90deg_transpose1stDiagonalThenFlipLeftRight(int[][] matrix) {
