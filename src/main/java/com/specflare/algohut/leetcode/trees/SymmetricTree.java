@@ -3,7 +3,8 @@ package com.specflare.algohut.leetcode.trees;
 /**
  * Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
  */
-// 101. Symmetric Tree
+// https://leetcode.com/problems/symmetric-tree/description/
+// 101. Symmetric Tree (Easy)
 public class SymmetricTree {
     public boolean isSymmetric(TreeNode root) {
         if (null == root) {

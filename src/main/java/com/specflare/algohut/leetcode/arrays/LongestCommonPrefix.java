@@ -12,7 +12,7 @@ import java.util.Arrays;
 // 14. Longest Common Prefix (Easy)
 // https://leetcode.com/problems/longest-common-prefix/
 public class LongestCommonPrefix {
-    public String longestCommonPrefix2(String[] strs) {
+    public String helper(String[] strs) {
         if (0 == strs.length) {
             return "";
         }
@@ -53,7 +53,7 @@ public class LongestCommonPrefix {
         Arrays.sort(strs);
         // shortest string is first in the array.
         Util.printArray(strs, strs.length);
-        return "";
+        return helper(strs);
     }
 
     public static void main(String[] args) {

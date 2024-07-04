@@ -90,24 +90,24 @@ public class TopKFrequentElements {
         if (k_smallest < pivot_index) {
             quickselect(arr, freqs, left, pivot_index - 1, k_smallest);
         } else {
-            quickselect(arr,freqs, pivot_index + 1, right, k_smallest);
+            quickselect(arr, freqs, pivot_index + 1, right, k_smallest);
         }
     }
 
     public int[] topKFrequent_QuickSelect(int[] nums, int k) {
         Map<Integer, Integer> freqs = new HashMap<>();
-        for (int num: nums) {
+        for (int num : nums) {
             freqs.put(num, freqs.getOrDefault(num, 0) + 1);
         }
 
         // array of unique elements
         int[] unique = new int[freqs.size()];
         int i = 0;
-        for (int num: freqs.keySet()) {
+        for (int num : freqs.keySet()) {
             unique[i++] = num;
         }
 
-        quickselect(unique, freqs,0, unique.length - 1, unique.length - k);
+        quickselect(unique, freqs, 0, unique.length - 1, unique.length - k);
         return Arrays.copyOfRange(unique, unique.length - k, unique.length);
     }
 
@@ -115,6 +115,6 @@ public class TopKFrequentElements {
         TopKFrequentElements tk = new TopKFrequentElements();
 //        Util.printArray(tk.topKFrequent(new int[] {1,1,1,2,2,3}, 2), 100);
 //        Util.printArray(tk.topKFrequent(new int[] {1}, 1), 100);
-        Util.printArray(tk.topKFrequent(new int[] {1, 2, 2,3,3,3,4,5,5,5,5,5}, 3), 100);
+        Util.printArray(tk.topKFrequent(new int[]{1, 2, 2, 3, 3, 3, 4, 5, 5, 5, 5, 5}, 3), 100);
     }
 }

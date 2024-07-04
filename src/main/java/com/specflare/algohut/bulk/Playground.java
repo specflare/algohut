@@ -1,4 +1,4 @@
-package com.specflare.algohut;
+package com.specflare.algohut.bulk;
 
 public class Playground {
     static class Obj {

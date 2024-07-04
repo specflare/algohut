@@ -1,4 +1,4 @@
-package com.specflare.algohut;
+package com.specflare.algohut.bulk;
 
 import java.util.Arrays;
 import java.util.Comparator;

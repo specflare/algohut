@@ -1,4 +1,4 @@
-package com.specflare.algohut;
+package com.specflare.algohut.bulk;
 
 public class AmazonOA {
     public int numPrefixChanges(int[] arr) {
